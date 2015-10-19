@@ -1,4 +1,9 @@
 package model;
+
+import model.actions.ActionFinishedException;
+import model.ressources.BasketPool;
+import model.scheduler.FairScheduler;
+
 public class Pool {
 	public static void main(String[] args) throws ActionFinishedException {
 		BasketPool baskets = new BasketPool(6);
