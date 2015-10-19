@@ -2,7 +2,9 @@ package model;
 
 import model.actions.ActionFinishedException;
 import model.ressources.BasketPool;
+import model.ressources.CubiclePool;
 import model.scheduler.FairScheduler;
+import model.scheduler.Swimmer;
 
 public class Pool {
 	public static void main(String[] args) throws ActionFinishedException {

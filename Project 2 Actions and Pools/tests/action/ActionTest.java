@@ -53,7 +53,7 @@ public abstract class ActionTest {
 	}
 	
 	@Test
-	public void onlyOneValidStateAtEachMomentForForeseebleAction() throws ActionFinishedException {
+	public void onlyOneValidStateAtEachMomentForForeseeableAction() throws ActionFinishedException {
 		onlyOneValidStateAtEachMoment(createAction(10));
 	}
 	
@@ -66,7 +66,5 @@ public abstract class ActionTest {
 		}
 		isFinishedTest(action);
 	}
-	
-	
 
 }
