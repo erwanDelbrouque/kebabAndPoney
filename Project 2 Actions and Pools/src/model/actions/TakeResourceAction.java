@@ -24,6 +24,7 @@ public class TakeResourceAction<R extends Resource> extends ResourcePoolAction<R
 		catch(NoSuchElementException e) {
 			throw e;
 		}
+		
 		this.user.setResource(resource);
 		this.actionState = ACTION_STATE.FINISHED;
 	}

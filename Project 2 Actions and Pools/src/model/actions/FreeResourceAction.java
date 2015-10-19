@@ -16,6 +16,10 @@ public class FreeResourceAction<R extends Resource> extends ResourcePoolAction<R
 	public void doStep() throws ActionFinishedException, NoSuchElementException {
 		super.doStep();
 		
+		if(user.getResource() == null) {
+			throw new NoSuchElementException("There are no ressources used by the User");
+		}
+		
 		pool.freeRessource(user.getResource());
 		
 		user.resetResource();
