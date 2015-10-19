@@ -2,7 +2,6 @@ package model.actions;
 
 import java.util.NoSuchElementException;
 
-
 public abstract class Action implements IAction {
 	
 	public enum ACTION_STATE {
@@ -46,6 +45,5 @@ public abstract class Action implements IAction {
 	public boolean isFinished() {
 		return this.actionState == ACTION_STATE.FINISHED;
 	}
-	
 
 }

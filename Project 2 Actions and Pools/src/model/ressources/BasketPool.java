@@ -8,7 +8,7 @@ public class BasketPool extends ResourcePool<Basket> {
 	}
 	
 	@Override
-	protected Basket createResource() {
+	public Basket createResource() {
 		return new Basket();
 	}
 

@@ -18,8 +18,6 @@ public abstract class ResourcePool<R extends Resource> implements IResourcePool<
 		}
 		
 	}
-	
-	protected abstract R createResource();
 
 	@Override
 	public R provideRessource() throws NoSuchElementException {
@@ -27,7 +25,6 @@ public abstract class ResourcePool<R extends Resource> implements IResourcePool<
 			R r = freeResources.remove(0);
 			usedResources.add(r);
 			return r;
-			
 		}
 		
 		throw new NoSuchElementException("There are no free ressources to provide !");
@@ -49,8 +46,6 @@ public abstract class ResourcePool<R extends Resource> implements IResourcePool<
 			throw new IllegalArgumentException("This ressource isn't managed by this ressource pool !");
 		}
 	}
-	
-	
 	
 }
 

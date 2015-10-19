@@ -10,4 +10,5 @@ public interface IResourcePool<R extends Resource> {
 
 	public void freeRessource(R ressource) throws IllegalArgumentException;
 
+	public R createResource();
 }

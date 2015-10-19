@@ -25,6 +25,7 @@ public class SequentialScheduler extends Scheduler {
 		}
 		
 		super.checkState(lastAction);
+		
 	}
 	
 	@Override

@@ -7,7 +7,7 @@ public class MockedResourcePool extends ResourcePool<MockedResource> {
 	}
 
 	@Override
-	protected MockedResource createResource() {
+	public MockedResource createResource() {
 		return new MockedResource();
 	}
 

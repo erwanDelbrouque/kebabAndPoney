@@ -40,7 +40,6 @@ public abstract class Scheduler extends Action implements IScheduler {
 		
 	}
 	
-
 	@Override
 	public void doStep() throws ActionFinishedException {
 		super.doStep();
@@ -49,9 +48,6 @@ public abstract class Scheduler extends Action implements IScheduler {
 			throw new ActionFinishedException("There are no actions in this scheduler, add some");
 		}
 		
-		if(this.isReady()) {
-			this.actionState = ACTION_STATE.IN_PROGRESS;
-		}
 		Action action = getNextAction();
 		action.doStep();
 		
