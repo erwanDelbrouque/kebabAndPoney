@@ -2,6 +2,7 @@ package model.scheduler;
 
 import model.actions.DressAction;
 import model.actions.FreeBasketAction;
+import model.actions.FreeCubicleAction;
 import model.actions.TakeBasketAction;
 import model.actions.TakeBathAction;
 import model.actions.UndressAction;
@@ -26,11 +27,11 @@ public class Swimmer extends SequentialScheduler {
 		this.addAction(new TakeBasketAction(baskets, bastketUser));
 		this.addAction(new FindCubicleAction(cubicles, cubiclesUser));
 		this.addAction(new UndressAction(timeToUndress));
-		this.addAction(new FreeCubicle(cubicles, cubiclesUser));
+		this.addAction(new FreeCubicleAction(cubicles, cubiclesUser));
 		this.addAction(new TakeBathAction(timeToBathe));
 		this.addAction(new FindCubicleAction(cubicles, cubiclesUser));
 		this.addAction(new DressAction(timeToDress));
-		this.addAction(new FreeCubicle(cubicles, cubiclesUser));
+		this.addAction(new FreeCubicleAction(cubicles, cubiclesUser));
 		this.addAction(new FreeBasketAction(baskets, bastketUser));
 	}
 
