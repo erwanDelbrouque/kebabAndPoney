@@ -1,8 +1,9 @@
 package model.actions;
 
 import java.util.NoSuchElementException;
+import java.util.Observable;
 
-public abstract class Action implements IAction {
+public abstract class Action extends Observable implements IAction {
 	
 	public enum ACTION_STATE {
 		READY, IN_PROGRESS, FINISHED;
@@ -31,6 +32,11 @@ public abstract class Action implements IAction {
 		}
 	}
 	
+	protected void notify(String message){
+		setChanged();
+		notifyObservers(message);
+	}
+	
 	@Override
 	public boolean isReady() {
 		return this.actionState == ACTION_STATE.READY;
@@ -46,4 +52,5 @@ public abstract class Action implements IAction {
 		return this.actionState == ACTION_STATE.FINISHED;
 	}
 
+	public abstract String getMessageAfterAction();
 }

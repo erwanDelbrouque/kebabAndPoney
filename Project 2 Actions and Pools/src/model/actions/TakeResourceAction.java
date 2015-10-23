@@ -29,5 +29,11 @@ public class TakeResourceAction<R extends Resource> extends ResourcePoolAction<R
 		this.actionState = ACTION_STATE.FINISHED;
 	}
 
+	@Override
+	public String getMessageAfterAction() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }
