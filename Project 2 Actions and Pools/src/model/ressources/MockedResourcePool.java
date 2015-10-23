@@ -10,4 +10,5 @@ public class MockedResourcePool extends ResourcePool<MockedResource> {
 	public MockedResource createResource() {
 		return new MockedResource();
 	}
+	
 }

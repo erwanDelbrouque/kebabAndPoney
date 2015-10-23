@@ -6,7 +6,7 @@ import model.ressources.Resource;
 import model.ressources.ResourcePool;
 import model.ressources.ResourcefulUser;
 
-public class TakeResourceAction<R extends Resource> extends ResourcePoolAction<R>{
+public class TakeResourceAction<R extends Resource> extends ResourcePoolAction<R> {
 
 	public TakeResourceAction(ResourcePool<R> pool, ResourcefulUser<R> user) {
 		super(pool, user);

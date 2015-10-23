@@ -1,7 +1,7 @@
 package model.ressources;
 
 
-public class BasketPool extends ResourcePool<Basket> {
+public class BasketPool<R extends Basket> extends ResourcePool<Basket> {
 
 	public BasketPool(int n) {
 		super(n);
