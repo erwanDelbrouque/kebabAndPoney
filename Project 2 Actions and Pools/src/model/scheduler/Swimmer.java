@@ -16,16 +16,19 @@ import model.ressources.ResourcefulUser;
 
 public class Swimmer extends SequentialScheduler {
 	
-	protected ResourcefulUser<Basket> bastketUser;
+	protected ResourcefulUser<Basket> basketUser;
 	protected ResourcefulUser<Cubicle> cubiclesUser;
 	
-	public Swimmer(String name,BasketPool<Basket> baskets ,CubiclePool cubicles,int timeToDress,int timeToBathe, int timeToUndress) throws ActionFinishedException{
+	public Swimmer(String name,BasketPool baskets , CubiclePool cubicles,int timeToDress,int timeToBathe, int timeToUndress) throws ActionFinishedException{
 		super(name);
+		basketUser = new ResourcefulUser<Basket>();
+		cubiclesUser = new ResourcefulUser<Cubicle>();
+		
 		createActions(baskets,cubicles, timeToDress,timeToBathe,timeToUndress);
 	}
 
-	public void createActions(BasketPool<Basket> baskets, CubiclePool cubicles, int timeToDress, int timeToBathe, int timeToUndress) throws ActionFinishedException {
-		this.addAction(new TakeBasketAction(baskets, bastketUser));
+	public void createActions(BasketPool baskets, CubiclePool cubicles, int timeToDress, int timeToBathe, int timeToUndress) throws ActionFinishedException {
+		this.addAction(new TakeBasketAction(baskets, basketUser));
 		this.addAction(new FindCubicleAction(cubicles, cubiclesUser));
 		this.addAction(new UndressAction(timeToUndress));
 		this.addAction(new FreeCubicleAction(cubicles, cubiclesUser));
@@ -33,7 +36,7 @@ public class Swimmer extends SequentialScheduler {
 		this.addAction(new FindCubicleAction(cubicles, cubiclesUser));
 		this.addAction(new DressAction(timeToDress));
 		this.addAction(new FreeCubicleAction(cubicles, cubiclesUser));
-		this.addAction(new FreeBasketAction(baskets, bastketUser));
+		this.addAction(new FreeBasketAction(baskets, basketUser));
 	}
 
 }

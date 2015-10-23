@@ -21,7 +21,11 @@ public class Pool {
 		int nbSteps = 0;
 		while (!s.isFinished()) {
 			nbSteps++;
+			try {
 			s.doStep();
+			} catch(Exception e) {
+				System.out.println(e.getMessage());
+			}
 		}
 		System.out.println("Finished in " + nbSteps + " steps");
 	}
