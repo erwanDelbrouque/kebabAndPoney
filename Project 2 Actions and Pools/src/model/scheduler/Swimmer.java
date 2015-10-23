@@ -1,7 +1,10 @@
 package model.scheduler;
 
+import model.actions.ActionFinishedException;
 import model.actions.DressAction;
 import model.actions.FindCubicleAction;
+import model.actions.FreeBasketAction;
+import model.actions.FreeCubicleAction;
 import model.actions.TakeBasketAction;
 import model.actions.TakeBathAction;
 import model.actions.UndressAction;
@@ -16,20 +19,20 @@ public class Swimmer extends SequentialScheduler {
 	protected ResourcefulUser<Basket> bastketUser;
 	protected ResourcefulUser<Cubicle> cubiclesUser;
 	
-	public Swimmer(String name,BasketPool<Basket> baskets ,CubiclePool cubicles,int timeToDress,int timeToBathe, int timeToUndress){
+	public Swimmer(String name,BasketPool<Basket> baskets ,CubiclePool cubicles,int timeToDress,int timeToBathe, int timeToUndress) throws ActionFinishedException{
 		super(name);
 		createActions(baskets,cubicles, timeToDress,timeToBathe,timeToUndress);
 	}
 
-	public void createActions(BasketPool<Basket> baskets, CubiclePool cubicles, int timeToDress, int timeToBathe, int timeToUndress) {
+	public void createActions(BasketPool<Basket> baskets, CubiclePool cubicles, int timeToDress, int timeToBathe, int timeToUndress) throws ActionFinishedException {
 		this.addAction(new TakeBasketAction(baskets, bastketUser));
 		this.addAction(new FindCubicleAction(cubicles, cubiclesUser));
 		this.addAction(new UndressAction(timeToUndress));
-		this.addAction(new FreeCubicle(cubicles, cubiclesUser));
+		this.addAction(new FreeCubicleAction(cubicles, cubiclesUser));
 		this.addAction(new TakeBathAction(timeToBathe));
 		this.addAction(new FindCubicleAction(cubicles, cubiclesUser));
 		this.addAction(new DressAction(timeToDress));
-		this.addAction(new FreeCubicle(cubicles, cubiclesUser));
+		this.addAction(new FreeCubicleAction(cubicles, cubiclesUser));
 		this.addAction(new FreeBasketAction(baskets, bastketUser));
 	}
 
