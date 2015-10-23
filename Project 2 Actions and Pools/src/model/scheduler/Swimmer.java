@@ -1,6 +1,7 @@
 package model.scheduler;
 
 import model.actions.DressAction;
+import model.actions.FreeBasketAction;
 import model.actions.TakeBasketAction;
 import model.actions.TakeBathAction;
 import model.actions.UndressAction;
