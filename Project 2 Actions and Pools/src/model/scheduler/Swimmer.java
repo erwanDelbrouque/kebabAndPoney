@@ -1,6 +1,7 @@
 package model.scheduler;
 
 import model.actions.DressAction;
+import model.actions.FindCubicleAction;
 import model.actions.TakeBasketAction;
 import model.actions.TakeBathAction;
 import model.actions.UndressAction;
@@ -8,7 +9,6 @@ import model.ressources.Basket;
 import model.ressources.BasketPool;
 import model.ressources.Cubicle;
 import model.ressources.CubiclePool;
-import model.ressources.Resource;
 import model.ressources.ResourcefulUser;
 
 public class Swimmer extends SequentialScheduler {
