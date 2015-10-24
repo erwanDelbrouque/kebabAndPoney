@@ -27,7 +27,7 @@ public abstract class ResourcePool<R extends Resource> implements IResourcePool<
 			return r;
 		}
 		
-		throw new NoSuchElementException("There are no free ressources to provide !");
+		throw new NoSuchElementException("...failed");
 	}
 
 	@Override

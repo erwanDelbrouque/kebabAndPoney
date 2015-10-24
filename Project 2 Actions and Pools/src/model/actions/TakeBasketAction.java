@@ -9,5 +9,10 @@ public class TakeBasketAction extends TakeResourceAction<Basket> {
 	public TakeBasketAction(ResourcePool<Basket> pool, ResourcefulUser<Basket> user) {
 		super(pool, user);
 	}
+	
+	@Override
+	public String getMessageAfterAction() {
+		return "Trying ot get basket";
+	}
 
 }

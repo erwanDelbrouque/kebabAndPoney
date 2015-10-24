@@ -20,6 +20,7 @@ public class TakeResourceAction<R extends Resource> extends ResourcePoolAction<R
 
 		try {
 			resource = pool.provideRessource();
+			notify("...success");
 		}
 		catch(NoSuchElementException e) {
 			throw e;

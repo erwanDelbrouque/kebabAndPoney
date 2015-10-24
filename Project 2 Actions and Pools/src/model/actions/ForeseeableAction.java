@@ -27,8 +27,6 @@ public class ForeseeableAction extends Action {
 			this.actionState = ACTION_STATE.FINISHED;
 		}
 		
-		notify(getMessageAfterAction());
-
 	}
 
 	@Override

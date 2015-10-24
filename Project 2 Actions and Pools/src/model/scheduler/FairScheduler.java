@@ -42,7 +42,5 @@ public class FairScheduler extends Scheduler {
 		return actionIterator.next();
 		
 	}
-	
-	
 
 }

@@ -2,6 +2,7 @@ package model.scheduler;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observer;
 
 import model.actions.Action;
 import model.actions.ActionFinishedException;
@@ -49,6 +50,7 @@ public abstract class Scheduler extends Action implements IScheduler {
 		}
 		
 		Action action = getNextAction();
+		notify(action.getMessageAfterAction());
 		action.doStep();
 		
 		checkState(action);
@@ -78,6 +80,18 @@ public abstract class Scheduler extends Action implements IScheduler {
 		}
 	}
 	
+	@Override
+	public synchronized void addObserver(Observer o) {
+		super.addObserver(o);
+		for(Action action : actions) {
+			action.addObserver(o);
+		}
+	}
+	
+	@Override
+	public String getMessageAfterAction() {
+		return "";
+	}
 	
 	
 	

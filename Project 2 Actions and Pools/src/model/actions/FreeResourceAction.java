@@ -30,7 +30,6 @@ public class FreeResourceAction<R extends Resource> extends ResourcePoolAction<R
 
 	@Override
 	public String getMessageAfterAction() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	
