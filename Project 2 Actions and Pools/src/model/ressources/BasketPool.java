@@ -4,9 +4,7 @@ package model.ressources;
 public class BasketPool extends ResourcePool<Basket> {
 
 	public BasketPool(int n) {
-		super(n);
-		
-		
+		super("Basket", n);
 	}
 	
 	@Override

@@ -5,6 +5,9 @@ public class ResourcefulUser<R extends Resource> {
 	protected String name;
 	protected R resource;
 	
+	public ResourcefulUser() {
+		this("User");
+	}
 	public ResourcefulUser(String name) {
 		this.name = name;
 	}
@@ -23,4 +26,10 @@ public class ResourcefulUser<R extends Resource> {
 		this.resource = null;
 		
 	}
+	
+	@Override
+	public String toString() {
+		return this.name;
+	}
+	
 }

@@ -9,9 +9,4 @@ public class FindCubicleAction extends TakeResourceAction<Cubicle>{
 	public FindCubicleAction(ResourcePool<Cubicle> pool, ResourcefulUser<Cubicle> user) {
 		super(pool, user);
 	}
-	
-	@Override
-	public String getMessageAfterAction() {
-		return "Trying ot get cubicle";
-	}
 }

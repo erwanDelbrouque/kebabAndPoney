@@ -32,9 +32,7 @@ public class TakeResourceAction<R extends Resource> extends ResourcePoolAction<R
 
 	@Override
 	public String getMessageAfterAction() {
-		// TODO Auto-generated method stub
-		return null;
+		return user + " trying to get ressource from pool " + pool;
 	}
-
 
 }
