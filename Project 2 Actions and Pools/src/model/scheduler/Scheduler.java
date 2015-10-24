@@ -50,16 +50,11 @@ public abstract class Scheduler extends Action implements IScheduler {
 		}
 		
 		Action action = getNextAction();
-		notify(action.getMessageAfterAction());
+		this.notify(action.getMessageBeforeAction());
 		action.doStep();
+		this.notify(action.getMessageAfterAction());
 		
 		checkState(action);
-	}
-
-	@Override
-	public Action getAction(int i) {
-		//TODO : Verifiy i
-		return this.actions.get(i);
 	}
 
 	@Override
@@ -86,6 +81,11 @@ public abstract class Scheduler extends Action implements IScheduler {
 		for(Action action : actions) {
 			action.addObserver(o);
 		}
+	}
+	
+	@Override
+	public String getMessageBeforeAction() {
+		return "";
 	}
 	
 	@Override

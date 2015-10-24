@@ -29,8 +29,15 @@ public class FreeResourceAction<R extends Resource> extends ResourcePoolAction<R
 	}
 
 	@Override
-	public String getMessageAfterAction() {
-		return null;
+	public String getMessageBeforeAction() {
+		return user + " freeing ressource from pool " + pool;
 	}
+	
+	@Override
+	public String getMessageAfterAction() {
+		return "";
+	}
+	
+	
 	
 }

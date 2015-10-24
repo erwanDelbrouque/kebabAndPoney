@@ -27,7 +27,7 @@ public class Swimmer extends SequentialScheduler {
 		createActions(baskets,cubicles, timeToDress,timeToBathe,timeToUndress);
 	}
 
-	public void createActions(BasketPool baskets, CubiclePool cubicles, int timeToDress, int timeToBathe, int timeToUndress) throws ActionFinishedException {
+	public void createActions(BasketPool baskets, CubiclePool cubicles, int timeToUndress, int timeToBathe, int timeToDress) throws ActionFinishedException {
 		this.addAction(new TakeBasketAction(baskets, basketUser));
 		this.addAction(new FindCubicleAction(cubicles, cubiclesUser));
 		this.addAction(new UndressAction(timeToUndress));
@@ -45,8 +45,13 @@ public class Swimmer extends SequentialScheduler {
 	}
 	
 	@Override
-	public String getMessageAfterAction() {
+	public String getMessageBeforeAction() {
 		return name + "'s turn";
+	}
+	
+	@Override
+	public String getMessageAfterAction() {
+		return "";
 	}
 
 }

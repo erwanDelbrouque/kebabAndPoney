@@ -1,7 +1,5 @@
 package model.actions;
 
-import java.util.NoSuchElementException;
-
 import model.ressources.Resource;
 import model.ressources.ResourcePool;
 import model.ressources.ResourcefulUser;

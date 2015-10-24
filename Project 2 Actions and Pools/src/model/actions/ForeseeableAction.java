@@ -28,6 +28,11 @@ public class ForeseeableAction extends Action {
 		}
 		
 	}
+	
+	@Override
+	public String getMessageBeforeAction() {
+		return "";
+	}
 
 	@Override
 	public String getMessageAfterAction() {

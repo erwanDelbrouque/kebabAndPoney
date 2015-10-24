@@ -52,5 +52,6 @@ public abstract class Action extends Observable implements IAction {
 		return this.actionState == ACTION_STATE.FINISHED;
 	}
 
+	public abstract String getMessageBeforeAction();
 	public abstract String getMessageAfterAction();
 }

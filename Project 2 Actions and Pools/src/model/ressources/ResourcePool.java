@@ -5,7 +5,6 @@ import java.util.NoSuchElementException;
 
 public abstract class ResourcePool<R extends Resource> implements IResourcePool<R> {
 	
-	
 	protected String name;
 	protected ArrayList<R> freeResources;
 	protected ArrayList<R> usedResources;
