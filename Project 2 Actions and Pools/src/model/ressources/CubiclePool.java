@@ -3,7 +3,7 @@ package model.ressources;
 public class CubiclePool  extends ResourcePool<Cubicle>  {
 
 	public CubiclePool(int n) {
-		super(n);
+		super("Cubicle", n);
 	}
 
 	@Override

@@ -6,7 +6,7 @@ import model.ressources.Resource;
 import model.ressources.ResourcePool;
 import model.ressources.ResourcefulUser;
 
-public class TakeResourceAction<R extends Resource> extends ResourcePoolAction<R>{
+public class TakeResourceAction<R extends Resource> extends ResourcePoolAction<R> {
 
 	public TakeResourceAction(ResourcePool<R> pool, ResourcefulUser<R> user) {
 		super(pool, user);
@@ -17,17 +17,20 @@ public class TakeResourceAction<R extends Resource> extends ResourcePoolAction<R
 		super.doStep();
 
 		R resource = null;
-
-		try {
-			resource = pool.provideRessource();
-		}
-		catch(NoSuchElementException e) {
-			throw e;
-		}
+		resource = pool.provideRessource();
 		
 		this.user.setResource(resource);
 		this.actionState = ACTION_STATE.FINISHED;
 	}
 
+	@Override
+	public String getMessageBeforeAction() {
+		return user + " trying to get ressource from pool " + pool;	
+	}
+
+	@Override
+	public String getMessageAfterAction() {
+		return "...success";
+	}
 
 }

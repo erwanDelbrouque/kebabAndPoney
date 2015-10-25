@@ -5,11 +5,12 @@ import java.util.NoSuchElementException;
 
 public abstract class ResourcePool<R extends Resource> implements IResourcePool<R> {
 	
-	
+	protected String name;
 	protected ArrayList<R> freeResources;
 	protected ArrayList<R> usedResources;
 	
-	public ResourcePool(int n) {
+	public ResourcePool(String name, int n) {
+		this.name = name;
 		this.freeResources = new ArrayList<R>();
 		this.usedResources = new ArrayList<R>();
 		
@@ -27,7 +28,7 @@ public abstract class ResourcePool<R extends Resource> implements IResourcePool<
 			return r;
 		}
 		
-		throw new NoSuchElementException("There are no free ressources to provide !");
+		throw new NoSuchElementException("...failed");
 	}
 
 	@Override
@@ -45,6 +46,11 @@ public abstract class ResourcePool<R extends Resource> implements IResourcePool<
 		} else {
 			throw new IllegalArgumentException("This ressource isn't managed by this ressource pool !");
 		}
+	}
+	
+	@Override
+	public String toString() {
+		return this.name;
 	}
 	
 }

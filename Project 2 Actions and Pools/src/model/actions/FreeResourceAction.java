@@ -27,5 +27,17 @@ public class FreeResourceAction<R extends Resource> extends ResourcePoolAction<R
 		actionState = ACTION_STATE.FINISHED;
 		
 	}
+
+	@Override
+	public String getMessageBeforeAction() {
+		return user + " freeing ressource from pool " + pool;
+	}
+	
+	@Override
+	public String getMessageAfterAction() {
+		return "";
+	}
+	
+	
 	
 }

@@ -27,7 +27,16 @@ public class ForeseeableAction extends Action {
 			this.actionState = ACTION_STATE.FINISHED;
 		}
 		
+	}
+	
+	@Override
+	public String getMessageBeforeAction() {
+		return "";
+	}
 
+	@Override
+	public String getMessageAfterAction() {
+		return "("+nbCurrentStep+"/"+nbStepsMax+")";
 	}
 
 }

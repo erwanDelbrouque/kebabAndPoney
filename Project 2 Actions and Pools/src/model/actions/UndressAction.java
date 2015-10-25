@@ -6,4 +6,8 @@ public class UndressAction extends ForeseeableAction {
 		super(nbStepsMax);
 	}
 
+	@Override
+	public String getMessageAfterAction() {
+		return "undressing "+super.getMessageAfterAction();
+	}
 }
