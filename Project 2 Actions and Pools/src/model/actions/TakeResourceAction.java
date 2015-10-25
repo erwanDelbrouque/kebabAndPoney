@@ -17,23 +17,20 @@ public class TakeResourceAction<R extends Resource> extends ResourcePoolAction<R
 		super.doStep();
 
 		R resource = null;
-
-		try {
-			resource = pool.provideRessource();
-		}
-		catch(NoSuchElementException e) {
-			throw e;
-		}
+		resource = pool.provideRessource();
 		
 		this.user.setResource(resource);
 		this.actionState = ACTION_STATE.FINISHED;
 	}
 
 	@Override
-	public String getMessageAfterAction() {
-		// TODO Auto-generated method stub
-		return null;
+	public String getMessageBeforeAction() {
+		return user + " trying to get ressource from pool " + pool;	
 	}
 
+	@Override
+	public String getMessageAfterAction() {
+		return "...success";
+	}
 
 }

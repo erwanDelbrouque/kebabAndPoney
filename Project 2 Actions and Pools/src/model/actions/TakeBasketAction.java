@@ -9,5 +9,5 @@ public class TakeBasketAction extends TakeResourceAction<Basket> {
 	public TakeBasketAction(ResourcePool<Basket> pool, ResourcefulUser<Basket> user) {
 		super(pool, user);
 	}
-
+	
 }

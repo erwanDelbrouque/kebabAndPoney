@@ -33,10 +33,4 @@ public class SequentialScheduler extends Scheduler {
 		return this.actions.get(0);
 	}
 
-	@Override
-	public String getMessageAfterAction() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

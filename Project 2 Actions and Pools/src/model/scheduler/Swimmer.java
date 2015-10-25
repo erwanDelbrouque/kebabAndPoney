@@ -21,13 +21,13 @@ public class Swimmer extends SequentialScheduler {
 	
 	public Swimmer(String name,BasketPool baskets , CubiclePool cubicles,int timeToDress,int timeToBathe, int timeToUndress) throws ActionFinishedException{
 		super(name);
-		basketUser = new ResourcefulUser<Basket>();
-		cubiclesUser = new ResourcefulUser<Cubicle>();
+		basketUser = new ResourcefulUser<Basket>(this.name);
+		cubiclesUser = new ResourcefulUser<Cubicle>(this.name);
 		
 		createActions(baskets,cubicles, timeToDress,timeToBathe,timeToUndress);
 	}
 
-	public void createActions(BasketPool baskets, CubiclePool cubicles, int timeToDress, int timeToBathe, int timeToUndress) throws ActionFinishedException {
+	public void createActions(BasketPool baskets, CubiclePool cubicles, int timeToUndress, int timeToBathe, int timeToDress) throws ActionFinishedException {
 		this.addAction(new TakeBasketAction(baskets, basketUser));
 		this.addAction(new FindCubicleAction(cubicles, cubiclesUser));
 		this.addAction(new UndressAction(timeToUndress));
@@ -37,6 +37,21 @@ public class Swimmer extends SequentialScheduler {
 		this.addAction(new DressAction(timeToDress));
 		this.addAction(new FreeCubicleAction(cubicles, cubiclesUser));
 		this.addAction(new FreeBasketAction(baskets, basketUser));
+	}
+	
+	@Override
+	public String toString() {
+		return this.name;
+	}
+	
+	@Override
+	public String getMessageBeforeAction() {
+		return name + "'s turn";
+	}
+	
+	@Override
+	public String getMessageAfterAction() {
+		return "";
 	}
 
 }
