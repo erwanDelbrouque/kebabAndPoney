@@ -42,6 +42,12 @@ public class FairScheduler extends Scheduler {
 		return actionIterator.next();
 		
 	}
+
+	@Override
+	public String getMessageAfterAction() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 

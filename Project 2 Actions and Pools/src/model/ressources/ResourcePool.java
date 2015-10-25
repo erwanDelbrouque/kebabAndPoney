@@ -14,7 +14,7 @@ public abstract class ResourcePool<R extends Resource> implements IResourcePool<
 		this.usedResources = new ArrayList<R>();
 		
 		for(int i = 0; i < n; ++i) {
-			this.freeResources.add(this.createResource());
+			this.freeResources.add(createResource());
 		}
 		
 	}
