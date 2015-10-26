@@ -1,11 +1,11 @@
 package scheduler;
 
 import model.actions.Action;
-import model.actions.IAction;
 import model.actions.foreseeableactions.ForeseeableAction;
 import model.exceptions.ActionFinishedException;
 import model.exceptions.ActionInProgressException;
 import model.scheduler.FairScheduler;
+import model.scheduler.IScheduler;
 import model.scheduler.Scheduler;
 
 import org.junit.Test;
@@ -16,7 +16,7 @@ public class FairSchedulerTest extends SchedulerTest {
 		return new FairScheduler();
 	}
 
-	protected Scheduler createScheduler(Action... actions) throws ActionFinishedException, ActionInProgressException {
+	protected IScheduler createScheduler(Action... actions) throws ActionFinishedException, ActionInProgressException {
 		return new FairScheduler(actions);
 	}
 	

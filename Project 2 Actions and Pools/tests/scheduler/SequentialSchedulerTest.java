@@ -4,6 +4,7 @@ import model.actions.Action;
 import model.actions.IAction;
 import model.exceptions.ActionFinishedException;
 import model.exceptions.ActionInProgressException;
+import model.scheduler.IScheduler;
 import model.scheduler.Scheduler;
 import model.scheduler.SequentialScheduler;
 
@@ -17,7 +18,7 @@ public class SequentialSchedulerTest extends SchedulerTest {
 	}
 
 	@Override
-	protected Scheduler createScheduler(Action... actions) throws ActionFinishedException, ActionInProgressException {
+	protected IScheduler createScheduler(Action... actions) throws ActionFinishedException, ActionInProgressException {
 		return new SequentialScheduler(actions);
 	}
 

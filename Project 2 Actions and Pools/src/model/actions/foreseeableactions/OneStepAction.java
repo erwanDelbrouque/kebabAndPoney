@@ -3,7 +3,7 @@ package model.actions.foreseeableactions;
 public class OneStepAction extends ForeseeableAction {
 	
 	public OneStepAction() {
-		this("");
+		this("One Step Action");
 	}
 	
 	public OneStepAction(String name) {

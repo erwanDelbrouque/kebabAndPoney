@@ -28,6 +28,9 @@ public abstract class Scheduler extends Action implements IScheduler {
 		addActions(actions);
 	}
 
+	/* (non-Javadoc)
+	 * @see model.scheduler.IScheduler#addAction(model.actions.Action)
+	 */
 	@Override
 	public void addAction(Action action) throws ActionFinishedException, ActionInProgressException, IllegalArgumentException {
 		if(this.isFinished()) {
@@ -50,6 +53,9 @@ public abstract class Scheduler extends Action implements IScheduler {
 		
 	}
 	
+	/* (non-Javadoc)
+	 * @see model.scheduler.IScheduler#doStep()
+	 */
 	@Override
 	public void doStep() throws ActionFinishedException {
 		super.doStep();
@@ -65,12 +71,24 @@ public abstract class Scheduler extends Action implements IScheduler {
 		
 		checkState(action);
 	}
+	
+	/* (non-Javadoc)
+	 * @see model.scheduler.IScheduler#getNextAction()
+	 */
+	@Override
+	public abstract IAction getNextAction();
 
+	/* (non-Javadoc)
+	 * @see model.scheduler.IScheduler#getActions()
+	 */
 	@Override
 	public List<Action> getActions() {
 		return this.actions;
 	}
 	
+	/* (non-Javadoc)
+	 * @see model.scheduler.IScheduler#checkState(model.actions.IAction)
+	 */
 	@Override
 	public void checkState(IAction lastAction) {
 		if(this.actions.isEmpty()) {
@@ -78,6 +96,10 @@ public abstract class Scheduler extends Action implements IScheduler {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see model.scheduler.IScheduler#addActions(model.actions.Action)
+	 */
+	@Override
 	public void addActions(Action... actions) throws ActionFinishedException, ActionInProgressException {
 		for(Action action : actions) {
 			addAction(action);
@@ -92,17 +114,21 @@ public abstract class Scheduler extends Action implements IScheduler {
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see model.scheduler.IScheduler#getMessageBeforeAction()
+	 */
 	@Override
 	public String getMessageBeforeAction() {
 		return "";
 	}
 	
+	/* (non-Javadoc)
+	 * @see model.scheduler.IScheduler#getMessageAfterAction()
+	 */
 	@Override
 	public String getMessageAfterAction() {
 		return "";
 	}
 	
 	
-	
-
 }

@@ -7,6 +7,7 @@ import model.actions.foreseeableactions.ForeseeableAction;
 import model.actions.foreseeableactions.OneStepAction;
 import model.exceptions.ActionFinishedException;
 import model.exceptions.ActionInProgressException;
+import model.scheduler.IScheduler;
 import model.scheduler.Scheduler;
 
 import org.junit.Test;
@@ -16,7 +17,7 @@ import action.ActionTest;
 public abstract class SchedulerTest extends ActionTest {
 	
 	protected abstract Scheduler createScheduler();
-	protected abstract Scheduler createScheduler(Action... actions) throws ActionFinishedException, ActionInProgressException;
+	protected abstract IScheduler createScheduler(Action... actions) throws ActionFinishedException, ActionInProgressException;
 	
 	@Override
 	protected Action createAction() {
@@ -38,7 +39,7 @@ public abstract class SchedulerTest extends ActionTest {
 	
 	@Test(expected=NullPointerException.class)
 	public void addNullActionTest() throws ActionFinishedException, ActionInProgressException {
-		Scheduler s = createScheduler();
+		IScheduler s = createScheduler();
 		s.addAction(null);
 	}
 	
