@@ -17,9 +17,8 @@ public class ForeseeableAction extends Action {
 	
 	public ForeseeableAction(String name, int nbStepsMax) throws IllegalArgumentException {
 		super(name);
-		//TODO : Verifiy the number > 0
 		if(nbStepsMax <= 0) {
-			throw new IllegalArgumentException("You must specify a number of steps > 1");
+			throw new IllegalArgumentException("You must specify a number of steps > 0");
 		}
 		
 		this.nbStepsMax = nbStepsMax;

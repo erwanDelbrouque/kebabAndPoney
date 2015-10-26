@@ -6,6 +6,9 @@ import model.actions.Action;
 import model.actions.resourcepoolactions.ResourcePoolAction;
 import model.ressources.pools.ResourcePool;
 import model.ressources.users.ResourcefulUser;
+
+import org.junit.Test;
+
 import action.ActionTest;
 
 public abstract class ResourcePoolActionTest extends ActionTest {
@@ -26,5 +29,10 @@ public abstract class ResourcePoolActionTest extends ActionTest {
 	}
 	
 	protected abstract ResourcePoolAction<MockedResource> createAction(ResourcePool<MockedResource> pool, ResourcefulUser<MockedResource> user);
+	
+	@Test(expected=NullPointerException.class)
+	public void freeNullResourceTest() {
+		pool.freeRessource(null);
+	}
 	
 }
