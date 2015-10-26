@@ -33,7 +33,7 @@ public class ForseeableActionTest extends ActionTest {
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void invalidNbStepsArgumentTest() {
-		IAction a = createAction(-1);
+		createAction(-1);
 	}
 	
 

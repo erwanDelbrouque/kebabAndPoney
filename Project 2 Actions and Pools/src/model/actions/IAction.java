@@ -2,16 +2,20 @@ package model.actions;
 
 import java.util.NoSuchElementException;
 
+import model.actions.foreseeableactions.ForeseeableAction;
+import model.actions.foreseeableactions.OneStepAction;
+import model.actions.resourcepoolactions.ResourcePoolAction;
 import model.exceptions.ActionFinishedException;
+import model.scheduler.Scheduler;
 
 /**
  * <b>Interface implemented by the Action class</b>
- * An action has 3 states : ready, in progress and finished
- * An action can have one or multiple steps to do to before beiing finished
- * 
- * A message can be displayed before the doing the step and after.
  *
  * @see Action
+ * @see ForeseeableAction
+ * @see OneStepAction
+ * @see ResourcePoolAction
+ * @see Scheduler
  */
 public interface IAction {
 

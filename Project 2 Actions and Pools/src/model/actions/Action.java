@@ -5,6 +5,14 @@ import java.util.Observable;
 
 import model.exceptions.ActionFinishedException;
 
+/**
+ * An action has 3 states : ready, in progress and finished
+ * An action can have one or multiple steps to do to before beiing finished
+ * 
+ * A message can be displayed before the doing the step and after.
+ * 
+ * @see IAction
+ */
 public abstract class Action extends Observable implements IAction {
 	
 	public enum ACTION_STATE {

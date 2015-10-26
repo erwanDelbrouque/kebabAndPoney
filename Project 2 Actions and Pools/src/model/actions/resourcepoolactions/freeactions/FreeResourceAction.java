@@ -2,7 +2,6 @@ package model.actions.resourcepoolactions.freeactions;
 
 import java.util.NoSuchElementException;
 
-import model.actions.Action.ACTION_STATE;
 import model.actions.resourcepoolactions.ResourcePoolAction;
 import model.exceptions.ActionFinishedException;
 import model.ressources.Resource;

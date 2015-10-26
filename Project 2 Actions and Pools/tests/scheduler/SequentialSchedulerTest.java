@@ -1,7 +1,6 @@
 package scheduler;
 
 import model.actions.Action;
-import model.actions.IAction;
 import model.exceptions.ActionFinishedException;
 import model.exceptions.ActionInProgressException;
 import model.scheduler.IScheduler;
