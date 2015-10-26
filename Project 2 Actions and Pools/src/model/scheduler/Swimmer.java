@@ -1,6 +1,7 @@
 package model.scheduler;
 
 import model.actions.ActionFinishedException;
+import model.actions.ActionInProgressException;
 import model.actions.DressAction;
 import model.actions.FindCubicleAction;
 import model.actions.FreeBasketAction;
@@ -21,7 +22,7 @@ public class Swimmer extends SequentialScheduler {
 	protected CubiclePool cubiclesPool;
 	
 	
-	public Swimmer(String name, BasketPool basketsPool, CubiclePool cubiclesPool, int timeToUndress, int timeToBathe, int timeToDress) throws ActionFinishedException{
+	public Swimmer(String name, BasketPool basketsPool, CubiclePool cubiclesPool, int timeToUndress, int timeToBathe, int timeToDress) throws ActionFinishedException, ActionInProgressException{
 		super(name);
 		this.basketsPool = basketsPool;
 		this.cubiclesPool = cubiclesPool;
@@ -31,7 +32,7 @@ public class Swimmer extends SequentialScheduler {
 		createActions(basketsPool, cubiclesPool, timeToUndress, timeToBathe, timeToDress);
 	}
 
-	public void createActions(BasketPool basketsPool, CubiclePool cubiclesPool, int timeToUndress, int timeToBathe, int timeToDress) throws ActionFinishedException {
+	public void createActions(BasketPool basketsPool, CubiclePool cubiclesPool, int timeToUndress, int timeToBathe, int timeToDress) throws ActionFinishedException, ActionInProgressException {
 		this.addAction(new TakeBasketAction(basketsPool, basketUser));
 		this.addAction(new FindCubicleAction(cubiclesPool, cubiclesUser));
 		this.addAction(new UndressAction(timeToUndress));

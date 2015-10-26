@@ -2,6 +2,7 @@ package model.scheduler;
 
 import model.actions.Action;
 import model.actions.ActionFinishedException;
+import model.actions.ActionInProgressException;
 
 
 public class SequentialScheduler extends Scheduler {
@@ -14,7 +15,7 @@ public class SequentialScheduler extends Scheduler {
 		super(name);
 	}
 	
-	public SequentialScheduler(Action... actions) throws ActionFinishedException {
+	public SequentialScheduler(Action... actions) throws ActionFinishedException, ActionInProgressException {
 		super(actions);
 	}
 

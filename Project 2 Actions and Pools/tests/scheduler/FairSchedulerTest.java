@@ -1,18 +1,13 @@
 package scheduler;
 
-import static org.junit.Assert.*;
 import model.actions.Action;
 import model.actions.ActionFinishedException;
+import model.actions.ActionInProgressException;
 import model.actions.ForeseeableAction;
-import model.actions.OneStepAction;
 import model.scheduler.FairScheduler;
 import model.scheduler.Scheduler;
-import model.scheduler.SequentialScheduler;
 
-import org.junit.Before;
 import org.junit.Test;
-
-import action.ActionTest;
 
 public class FairSchedulerTest extends SchedulerTest {
 	
@@ -20,12 +15,12 @@ public class FairSchedulerTest extends SchedulerTest {
 		return new FairScheduler();
 	}
 
-	protected Scheduler createScheduler(Action... actions) throws ActionFinishedException {
+	protected Scheduler createScheduler(Action... actions) throws ActionFinishedException, ActionInProgressException {
 		return new FairScheduler(actions);
 	}
 	
 	@Test
-	public void fairSchedulerTest() throws ActionFinishedException {
+	public void fairSchedulerTest() throws ActionFinishedException, ActionInProgressException {
 		Scheduler scheduler = createScheduler();
 		Action a1 = new ForeseeableAction(2);
 		Action a2 = new ForeseeableAction(2);

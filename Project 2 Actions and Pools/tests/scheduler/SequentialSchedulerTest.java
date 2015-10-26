@@ -1,10 +1,8 @@
 package scheduler;
 
-import static org.junit.Assert.*;
 import model.actions.Action;
 import model.actions.ActionFinishedException;
-import model.actions.ForeseeableAction;
-import model.actions.OneStepAction;
+import model.actions.ActionInProgressException;
 import model.scheduler.Scheduler;
 import model.scheduler.SequentialScheduler;
 
@@ -18,12 +16,12 @@ public class SequentialSchedulerTest extends SchedulerTest {
 	}
 
 	@Override
-	protected Scheduler createScheduler(Action... actions) throws ActionFinishedException {
+	protected Scheduler createScheduler(Action... actions) throws ActionFinishedException, ActionInProgressException {
 		return new SequentialScheduler(actions);
 	}
 
 	@Test
-	public void sequentialSchedulerTest() throws ActionFinishedException {
+	public void sequentialSchedulerTest() throws ActionFinishedException, ActionInProgressException {
 		Scheduler scheduler = createScheduler();
 		Action a1 = createAction(2);
 		Action a2 = createAction(2);
@@ -57,7 +55,6 @@ public class SequentialSchedulerTest extends SchedulerTest {
 		isFinishedTest(scheduler);
 		isFinishedTest(a1);
 		isFinishedTest(a2);
-		
 		
 	}
 

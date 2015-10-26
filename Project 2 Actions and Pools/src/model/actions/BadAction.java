@@ -12,8 +12,9 @@ public class BadAction extends SequentialScheduler {
 	 * For a foreseeable action, indicate the number of
 	 * <code>doStep()</code> calls required. For a scheduler, must be
 	 * 0.
+	 * @throws ActionInProgressException 
 	 */
-	public BadAction(Action... actions) throws ActionFinishedException {
+	public BadAction(Action... actions) throws ActionFinishedException, ActionInProgressException {
 		super(actions);
 	}
 }

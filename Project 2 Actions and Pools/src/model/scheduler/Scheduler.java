@@ -6,6 +6,7 @@ import java.util.Observer;
 
 import model.actions.Action;
 import model.actions.ActionFinishedException;
+import model.actions.ActionInProgressException;
 
 public abstract class Scheduler extends Action implements IScheduler {
 	
@@ -20,7 +21,7 @@ public abstract class Scheduler extends Action implements IScheduler {
 		this.actions = new ArrayList<Action>();
 	}
 	
-	public Scheduler(Action ... actions) throws ActionFinishedException {
+	public Scheduler(Action ... actions) throws ActionFinishedException, ActionInProgressException {
 		this();
 		for(Action action : actions) {
 			addAction(action);
@@ -28,13 +29,17 @@ public abstract class Scheduler extends Action implements IScheduler {
 	}
 
 	@Override
-	public void addAction(Action action) throws ActionFinishedException {
+	public void addAction(Action action) throws ActionFinishedException, ActionInProgressException, IllegalArgumentException {
 		if(this.isFinished()) {
 			throw new ActionFinishedException("This scheduler has finished to do all his actions");
 		}
 		
 		if(this.isInProgress()) {
-			throw new ActionFinishedException("You can't add actions in progress");
+			throw new ActionInProgressException("You can't add actions in progress");
+		}
+		
+		if(this.actions.contains(action)) {
+			throw new IllegalArgumentException("This action already exists in " + name);
 		}
 		
 		this.actions.add(action);
@@ -69,7 +74,7 @@ public abstract class Scheduler extends Action implements IScheduler {
 		}
 	}
 
-	public void addAction(Action... actions) throws ActionFinishedException {
+	public void addAction(Action... actions) throws ActionFinishedException, ActionInProgressException {
 		for(Action action : actions) {
 			addAction(action);
 		}

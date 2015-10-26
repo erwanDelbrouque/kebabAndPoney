@@ -2,13 +2,14 @@ package model;
 
 import view.ConsoleView;
 import model.actions.ActionFinishedException;
+import model.actions.ActionInProgressException;
 import model.ressources.BasketPool;
 import model.ressources.CubiclePool;
 import model.scheduler.FairScheduler;
 import model.scheduler.Swimmer;
 
 public class Pool {
-	public static void main(String[] args) throws ActionFinishedException {
+	public static void main(String[] args) throws ActionFinishedException, ActionInProgressException {
 		ConsoleView console = new ConsoleView();
 		BasketPool baskets = new BasketPool(6);
 		CubiclePool cubicles = new CubiclePool(3);

@@ -3,13 +3,14 @@ package action;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import model.actions.ActionFinishedException;
+import model.actions.ActionInProgressException;
 import model.actions.BadAction;
 import model.actions.ForeseeableAction;
 
 import org.junit.Test;
 
 public class BadActionTest {
-	private BadAction createAction(int timeToEnd) throws ActionFinishedException {
+	private BadAction createAction(int timeToEnd) throws ActionFinishedException, ActionInProgressException {
 		BadAction badAction = new BadAction();
 		if(timeToEnd > 0) {
 			badAction.addAction(new ForeseeableAction(timeToEnd));
@@ -19,7 +20,7 @@ public class BadActionTest {
 	}
 	
 	@Test
-	public void foreseeableAction() throws ActionFinishedException {
+	public void foreseeableAction() throws ActionFinishedException, ActionInProgressException {
 		BadAction action = createAction(2);
 		// 2 steps remaining
 		assertTrue(action.isReady());
@@ -37,7 +38,7 @@ public class BadActionTest {
 		assertTrue(action.isFinished());
 	}
 	@Test
-	public void scheduler() throws ActionFinishedException {
+	public void scheduler() throws ActionFinishedException, ActionInProgressException {
 		BadAction action1 = createAction(2);
 		BadAction action2 = createAction(1);
 		BadAction scheduler = createAction(0);
@@ -56,7 +57,7 @@ public class BadActionTest {
 		assertTrue(action2.isFinished());
 	}
 	@Test
-	public void schedulerWithScheduler() throws ActionFinishedException {
+	public void schedulerWithScheduler() throws ActionFinishedException, ActionInProgressException {
 		BadAction action1 = createAction(2);
 		BadAction subScheduler = createAction(0);
 		BadAction scheduler = createAction(0);

@@ -4,6 +4,7 @@ import java.util.Iterator;
 
 import model.actions.Action;
 import model.actions.ActionFinishedException;
+import model.actions.ActionInProgressException;
 
 public class FairScheduler extends Scheduler {
 	protected Iterator<Action> actionIterator;
@@ -16,7 +17,7 @@ public class FairScheduler extends Scheduler {
 		super(name);
 	}
 	
-	public FairScheduler(Action... actions) throws ActionFinishedException {
+	public FairScheduler(Action... actions) throws ActionFinishedException, ActionInProgressException {
 		super(actions);
 	}
 	
