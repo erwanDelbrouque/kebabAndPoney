@@ -13,19 +13,21 @@ import model.actions.TakeBathAction;
 import model.actions.UndressAction;
 import model.ressources.Basket;
 import model.ressources.BasketPool;
+import model.ressources.BasketResourcefulUser;
 import model.ressources.Cubicle;
 import model.ressources.CubiclePool;
+import model.ressources.CubicleResourcefulUser;
 import model.ressources.ResourcefulUser;
 
 public class Swimmer extends SequentialScheduler {
 	
-	protected ResourcefulUser<Basket> basketUser;
-	protected ResourcefulUser<Cubicle> cubiclesUser;
+	protected BasketResourcefulUser basketUser;
+	protected CubicleResourcefulUser cubiclesUser;
 	
 	public Swimmer(String name,BasketPool baskets , CubiclePool cubicles,int timeToDress,int timeToBathe, int timeToUndress) throws ActionFinishedException{
 		super(name);
-		basketUser = new ResourcefulUser<Basket>(this.name);
-		cubiclesUser = new ResourcefulUser<Cubicle>(this.name);
+		basketUser = new BasketResourcefulUser(this.name);
+		cubiclesUser = new CubicleResourcefulUser(this.name);
 		
 		createActions(baskets,cubicles, timeToDress,timeToBathe,timeToUndress);
 	}
