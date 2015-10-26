@@ -3,6 +3,7 @@ package model.scheduler;
 import java.util.Iterator;
 
 import model.actions.Action;
+import model.actions.IAction;
 import model.exceptions.ActionFinishedException;
 import model.exceptions.ActionInProgressException;
 
@@ -22,7 +23,7 @@ public class FairScheduler extends Scheduler {
 	}
 	
 	@Override
-	public void checkState(Action lastAction) {
+	public void checkState(IAction lastAction) {
 		if(lastAction.isFinished()) {
 			actionIterator.remove();
 		}
@@ -31,7 +32,7 @@ public class FairScheduler extends Scheduler {
 	}
 	
 	@Override
-	public Action getNextAction() {
+	public IAction getNextAction() {
 		if(this.actionIterator == null) {
 			this.actionIterator = actions.iterator();
 		}

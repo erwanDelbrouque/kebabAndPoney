@@ -31,6 +31,9 @@ public abstract class Action extends Observable implements IAction {
 		this.name = name;
 	}
 	
+	/* (non-Javadoc)
+	 * @see model.actions.IAction#doStep()
+	 */
 	@Override
 	public void doStep() throws ActionFinishedException, NoSuchElementException {
 		if(this.isFinished()) {
@@ -47,21 +50,38 @@ public abstract class Action extends Observable implements IAction {
 		notifyObservers(message);
 	}
 	
+	/* (non-Javadoc)
+	 * @see model.actions.IAction#isReady()
+	 */
 	@Override
 	public boolean isReady() {
 		return this.actionState == ACTION_STATE.READY;
 	}
 	
+	/* (non-Javadoc)
+	 * @see model.actions.IAction#isInProgress()
+	 */
 	@Override
 	public boolean isInProgress() {
 		return this.actionState == ACTION_STATE.IN_PROGRESS;
 	}
 	
+	/* (non-Javadoc)
+	 * @see model.actions.IAction#isFinished()
+	 */
 	@Override
 	public boolean isFinished() {
 		return this.actionState == ACTION_STATE.FINISHED;
 	}
 
+	/* (non-Javadoc)
+	 * @see model.actions.IAction#getMessageBeforeAction()
+	 */
+	@Override
 	public abstract String getMessageBeforeAction();
+	/* (non-Javadoc)
+	 * @see model.actions.IAction#getMessageAfterAction()
+	 */
+	@Override
 	public abstract String getMessageAfterAction();
 }

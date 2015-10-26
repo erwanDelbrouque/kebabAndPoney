@@ -6,6 +6,7 @@ import java.util.NoSuchElementException;
 import java.util.Observer;
 
 import model.actions.Action;
+import model.actions.IAction;
 import model.exceptions.ActionFinishedException;
 import model.exceptions.ActionInProgressException;
 
@@ -57,7 +58,7 @@ public abstract class Scheduler extends Action implements IScheduler {
 			throw new NoSuchElementException("There are no actions in this scheduler, add some");
 		}
 		
-		Action action = getNextAction();
+		IAction action = getNextAction();
 		this.notify(action.getMessageBeforeAction());
 		action.doStep();
 		this.notify(action.getMessageAfterAction());
@@ -71,7 +72,7 @@ public abstract class Scheduler extends Action implements IScheduler {
 	}
 	
 	@Override
-	public void checkState(Action lastAction) {
+	public void checkState(IAction lastAction) {
 		if(this.actions.isEmpty()) {
 			this.actionState = ACTION_STATE.FINISHED;
 		}

@@ -3,18 +3,18 @@ package action;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-import model.actions.Action;
+import model.actions.IAction;
 import model.exceptions.ActionFinishedException;
 
 import org.junit.Test;
 
 public abstract class ActionTest {
-	protected abstract Action createAction();
-	protected abstract Action createAction(int nbStepsMax);
+	protected abstract IAction createAction();
+	protected abstract IAction createAction(int nbStepsMax);
 
 	@Test(expected = ActionFinishedException.class, timeout = 2000)
 	public void doStepWhileFinishedThrowsException() throws ActionFinishedException {
-		Action action = createAction();
+		IAction action = createAction();
 
 		doStepUntilFinished(action);
 
@@ -22,7 +22,7 @@ public abstract class ActionTest {
 		action.doStep();
 	}
 
-	protected void isReadyTest(Action action) {
+	protected void isReadyTest(IAction action) {
 
 		assertTrue(action.isReady());
 		assertFalse(action.isInProgress());
@@ -30,7 +30,7 @@ public abstract class ActionTest {
 
 	}
 
-	protected void isInProgressTest(Action action) {
+	protected void isInProgressTest(IAction action) {
 
 		assertFalse(action.isReady());
 		assertTrue(action.isInProgress());
@@ -38,7 +38,7 @@ public abstract class ActionTest {
 
 	}
 
-	protected void isFinishedTest(Action action) {
+	protected void isFinishedTest(IAction action) {
 
 		assertFalse(action.isReady());
 		assertFalse(action.isInProgress());
@@ -46,7 +46,7 @@ public abstract class ActionTest {
 
 	}
 	
-	protected void doStepUntilFinished(Action action) {
+	protected void doStepUntilFinished(IAction action) {
 		while (!action.isFinished()) {
 			try {
 				action.doStep();
@@ -61,7 +61,7 @@ public abstract class ActionTest {
 		onlyOneValidStateAtEachMoment(createAction(10));
 	}
 	
-	protected void onlyOneValidStateAtEachMoment(Action action) throws ActionFinishedException {
+	protected void onlyOneValidStateAtEachMoment(IAction action) throws ActionFinishedException {
 		isReadyTest(action);
 		while (!action.isFinished()) {
 			action.doStep();

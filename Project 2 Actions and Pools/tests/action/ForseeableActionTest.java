@@ -1,6 +1,6 @@
 package action;
 
-import model.actions.Action;
+import model.actions.IAction;
 import model.actions.foreseeableactions.ForeseeableAction;
 import model.actions.foreseeableactions.OneStepAction;
 import model.exceptions.ActionFinishedException;
@@ -10,18 +10,18 @@ import org.junit.Test;
 public class ForseeableActionTest extends ActionTest {
 
 	@Override
-	protected Action createAction() {
+	protected IAction createAction() {
 		return new OneStepAction();
 	}
 
 	@Override
-	protected Action createAction(int nbStepsMax) {
+	protected IAction createAction(int nbStepsMax) {
 		return new ForeseeableAction(nbStepsMax);
 	}
 	
 	@Test
 	public void foreseeableTest() throws ActionFinishedException {
-		Action fa = createAction(2);
+		IAction fa = createAction(2);
 		
 		isReadyTest(fa);
 		fa.doStep();
@@ -33,7 +33,7 @@ public class ForseeableActionTest extends ActionTest {
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void invalidNbStepsArgumentTest() {
-		Action a = createAction(-1);
+		IAction a = createAction(-1);
 	}
 	
 

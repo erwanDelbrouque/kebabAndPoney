@@ -8,7 +8,7 @@ public class TakeBathAction extends ForeseeableAction {
 	
 	@Override
 	public String getMessageAfterAction() {
-		return "taking bathe "+super.getMessageAfterAction();
+		return "taking bathe " + super.getMessageAfterAction();
 	}
 
 }

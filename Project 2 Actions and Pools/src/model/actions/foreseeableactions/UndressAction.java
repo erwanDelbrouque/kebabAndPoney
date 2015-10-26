@@ -8,6 +8,6 @@ public class UndressAction extends ForeseeableAction {
 
 	@Override
 	public String getMessageAfterAction() {
-		return "undressing "+super.getMessageAfterAction();
+		return "undressing " + super.getMessageAfterAction();
 	}
 }

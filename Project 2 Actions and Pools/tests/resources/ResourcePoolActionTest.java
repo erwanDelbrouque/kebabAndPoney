@@ -2,7 +2,7 @@ package resources;
 
 import mockedclasses.resources.MockedResource;
 import mockedclasses.resources.MockedResourcePool;
-import model.actions.Action;
+import model.actions.IAction;
 import model.actions.resourcepoolactions.ResourcePoolAction;
 import model.ressources.pools.ResourcePool;
 import model.ressources.users.ResourcefulUser;
@@ -24,7 +24,7 @@ public abstract class ResourcePoolActionTest extends ActionTest {
 	}
 	
 	@Override
-	protected Action createAction(int nbStepsMax) {
+	protected IAction createAction(int nbStepsMax) {
 		return createAction();
 	}
 	

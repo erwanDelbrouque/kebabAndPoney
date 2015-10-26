@@ -1,6 +1,7 @@
 package model.scheduler;
 
 import model.actions.Action;
+import model.actions.IAction;
 import model.exceptions.ActionFinishedException;
 import model.exceptions.ActionInProgressException;
 
@@ -20,7 +21,7 @@ public class SequentialScheduler extends Scheduler {
 	}
 
 	@Override
-	public void checkState(Action lastAction) {
+	public void checkState(IAction lastAction) {
 		if(lastAction.isFinished()) {
 			this.actions.remove(lastAction);
 		}
@@ -30,7 +31,7 @@ public class SequentialScheduler extends Scheduler {
 	}
 	
 	@Override
-	public Action getNextAction() {
+	public IAction getNextAction() {
 		return this.actions.get(0);
 	}
 
