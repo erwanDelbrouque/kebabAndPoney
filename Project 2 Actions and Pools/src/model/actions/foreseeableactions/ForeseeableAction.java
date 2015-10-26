@@ -1,5 +1,7 @@
-package model.actions;
+package model.actions.foreseeableactions;
 
+import model.actions.Action;
+import model.actions.Action.ACTION_STATE;
 import model.exceptions.ActionFinishedException;
 
 

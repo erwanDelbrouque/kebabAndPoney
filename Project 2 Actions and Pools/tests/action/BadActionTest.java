@@ -2,8 +2,8 @@ package action;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import model.actions.BadAction;
-import model.actions.ForeseeableAction;
+import mockedclasses.actions.BadAction;
+import model.actions.foreseeableactions.ForeseeableAction;
 import model.exceptions.ActionFinishedException;
 import model.exceptions.ActionInProgressException;
 

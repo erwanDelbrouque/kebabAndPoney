@@ -1,4 +1,6 @@
-package model.ressources;
+package model.ressources.users;
+
+import model.ressources.Resource;
 
 public class ResourcefulUser<R extends Resource> {
 	

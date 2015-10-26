@@ -1,8 +1,8 @@
-package model.actions;
+package model.actions.resourcepoolactions.freeactions;
 
 import model.ressources.Cubicle;
-import model.ressources.ResourcePool;
-import model.ressources.ResourcefulUser;
+import model.ressources.pools.ResourcePool;
+import model.ressources.users.ResourcefulUser;
 
 public class FreeCubicleAction extends FreeResourceAction<Cubicle> {
 

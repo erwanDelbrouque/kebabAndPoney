@@ -1,4 +1,6 @@
-package model.ressources;
+package mockedclasses.resources;
+
+import model.ressources.pools.ResourcePool;
 
 public class MockedResourcePool extends ResourcePool<MockedResource> {
 	

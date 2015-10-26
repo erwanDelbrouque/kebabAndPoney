@@ -1,8 +1,8 @@
 package action;
 
 import model.actions.Action;
-import model.actions.ForeseeableAction;
-import model.actions.OneStepAction;
+import model.actions.foreseeableactions.ForeseeableAction;
+import model.actions.foreseeableactions.OneStepAction;
 import model.exceptions.ActionFinishedException;
 
 import org.junit.Test;

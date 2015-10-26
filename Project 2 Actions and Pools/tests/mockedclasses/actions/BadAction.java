@@ -1,5 +1,6 @@
-package model.actions;
+package mockedclasses.actions;
 
+import model.actions.Action;
 import model.exceptions.ActionFinishedException;
 import model.exceptions.ActionInProgressException;
 import model.scheduler.SequentialScheduler;

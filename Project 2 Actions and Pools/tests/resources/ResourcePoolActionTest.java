@@ -1,11 +1,11 @@
 package resources;
 
+import mockedclasses.resources.MockedResource;
+import mockedclasses.resources.MockedResourcePool;
 import model.actions.Action;
-import model.actions.ResourcePoolAction;
-import model.ressources.MockedResource;
-import model.ressources.MockedResourcePool;
-import model.ressources.ResourcePool;
-import model.ressources.ResourcefulUser;
+import model.actions.resourcepoolactions.ResourcePoolAction;
+import model.ressources.pools.ResourcePool;
+import model.ressources.users.ResourcefulUser;
 import action.ActionTest;
 
 public abstract class ResourcePoolActionTest extends ActionTest {

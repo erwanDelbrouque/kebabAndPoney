@@ -2,7 +2,7 @@ package action;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import model.actions.OneStepAction;
+import model.actions.foreseeableactions.OneStepAction;
 import model.exceptions.ActionFinishedException;
 import model.exceptions.ActionInProgressException;
 import model.scheduler.FairScheduler;

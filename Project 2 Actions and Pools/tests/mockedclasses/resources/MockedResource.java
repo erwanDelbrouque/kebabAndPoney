@@ -1,4 +1,4 @@
-package model.ressources;
+package mockedclasses.resources;
 
 import model.ressources.Resource;
 

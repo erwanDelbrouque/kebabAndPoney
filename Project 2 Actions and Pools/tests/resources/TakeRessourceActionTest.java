@@ -3,12 +3,12 @@ package resources;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
-import model.actions.ResourcePoolAction;
-import model.actions.TakeResourceAction;
+import mockedclasses.resources.MockedResource;
+import model.actions.resourcepoolactions.ResourcePoolAction;
+import model.actions.resourcepoolactions.takeactions.TakeResourceAction;
 import model.exceptions.ActionFinishedException;
-import model.ressources.MockedResource;
-import model.ressources.ResourcePool;
-import model.ressources.ResourcefulUser;
+import model.ressources.pools.ResourcePool;
+import model.ressources.users.ResourcefulUser;
 
 import org.junit.Test;
 

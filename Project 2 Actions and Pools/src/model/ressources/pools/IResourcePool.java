@@ -1,6 +1,8 @@
-package model.ressources;
+package model.ressources.pools;
 
 import java.util.NoSuchElementException;
+
+import model.ressources.Resource;
 
 public interface IResourcePool<R extends Resource> {
 

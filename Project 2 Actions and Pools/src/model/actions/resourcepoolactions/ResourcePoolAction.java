@@ -1,8 +1,9 @@
-package model.actions;
+package model.actions.resourcepoolactions;
 
+import model.actions.Action;
 import model.ressources.Resource;
-import model.ressources.ResourcePool;
-import model.ressources.ResourcefulUser;
+import model.ressources.pools.ResourcePool;
+import model.ressources.users.ResourcefulUser;
 
 public abstract class ResourcePoolAction<R extends Resource> extends Action {
 

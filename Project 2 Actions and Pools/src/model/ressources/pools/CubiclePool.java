@@ -1,4 +1,6 @@
-package model.ressources;
+package model.ressources.pools;
+
+import model.ressources.Cubicle;
 
 public class CubiclePool  extends ResourcePool<Cubicle>  {
 

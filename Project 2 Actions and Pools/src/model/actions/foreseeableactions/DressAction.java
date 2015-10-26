@@ -1,4 +1,4 @@
-package model.actions;
+package model.actions.foreseeableactions;
 
 public class DressAction extends ForeseeableAction {
 

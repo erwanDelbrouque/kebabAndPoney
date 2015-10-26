@@ -1,7 +1,9 @@
-package model.ressources;
+package model.ressources.pools;
 
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
+
+import model.ressources.Resource;
 
 public abstract class ResourcePool<R extends Resource> implements IResourcePool<R> {
 	

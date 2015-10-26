@@ -1,18 +1,18 @@
 package model.scheduler;
 
-import model.actions.DressAction;
-import model.actions.FindCubicleAction;
-import model.actions.FreeBasketAction;
-import model.actions.FreeCubicleAction;
-import model.actions.TakeBasketAction;
-import model.actions.TakeBathAction;
-import model.actions.UndressAction;
+import model.actions.foreseeableactions.DressAction;
+import model.actions.foreseeableactions.TakeBathAction;
+import model.actions.foreseeableactions.UndressAction;
+import model.actions.resourcepoolactions.freeactions.FreeBasketAction;
+import model.actions.resourcepoolactions.freeactions.FreeCubicleAction;
+import model.actions.resourcepoolactions.takeactions.FindCubicleAction;
+import model.actions.resourcepoolactions.takeactions.TakeBasketAction;
 import model.exceptions.ActionFinishedException;
 import model.exceptions.ActionInProgressException;
-import model.ressources.BasketPool;
-import model.ressources.BasketResourcefulUser;
-import model.ressources.CubiclePool;
-import model.ressources.CubicleResourcefulUser;
+import model.ressources.pools.BasketPool;
+import model.ressources.pools.CubiclePool;
+import model.ressources.users.BasketResourcefulUser;
+import model.ressources.users.CubicleResourcefulUser;
 
 public class Swimmer extends SequentialScheduler {
 	

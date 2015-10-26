@@ -3,8 +3,8 @@ package model;
 import view.ConsoleView;
 import model.exceptions.ActionFinishedException;
 import model.exceptions.ActionInProgressException;
-import model.ressources.BasketPool;
-import model.ressources.CubiclePool;
+import model.ressources.pools.BasketPool;
+import model.ressources.pools.CubiclePool;
 import model.scheduler.FairScheduler;
 import model.scheduler.Swimmer;
 

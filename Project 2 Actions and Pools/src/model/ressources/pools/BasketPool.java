@@ -1,4 +1,6 @@
-package model.ressources;
+package model.ressources.pools;
+
+import model.ressources.Basket;
 
 
 public class BasketPool extends ResourcePool<Basket> {

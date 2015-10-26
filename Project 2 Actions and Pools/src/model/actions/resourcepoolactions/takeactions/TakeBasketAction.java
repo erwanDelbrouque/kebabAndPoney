@@ -1,8 +1,8 @@
-package model.actions;
+package model.actions.resourcepoolactions.takeactions;
 
 import model.ressources.Basket;
-import model.ressources.ResourcePool;
-import model.ressources.ResourcefulUser;
+import model.ressources.pools.ResourcePool;
+import model.ressources.users.ResourcefulUser;
 
 public class TakeBasketAction extends TakeResourceAction<Basket> {
 

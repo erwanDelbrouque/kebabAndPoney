@@ -1,4 +1,6 @@
-package model.ressources;
+package model.ressources.users;
+
+import model.ressources.Cubicle;
 
 public class CubicleResourcefulUser extends ResourcefulUser<Cubicle> {
 	

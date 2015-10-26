@@ -1,8 +1,8 @@
 package scheduler;
 
 import model.actions.Action;
-import model.actions.ForeseeableAction;
-import model.actions.OneStepAction;
+import model.actions.foreseeableactions.ForeseeableAction;
+import model.actions.foreseeableactions.OneStepAction;
 import model.exceptions.ActionFinishedException;
 import model.exceptions.ActionInProgressException;
 import model.scheduler.Scheduler;

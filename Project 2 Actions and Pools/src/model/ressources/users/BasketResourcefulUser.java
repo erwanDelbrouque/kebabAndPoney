@@ -1,4 +1,6 @@
-package model.ressources;
+package model.ressources.users;
+
+import model.ressources.Basket;
 
 public class BasketResourcefulUser extends ResourcefulUser<Basket> {
 	
