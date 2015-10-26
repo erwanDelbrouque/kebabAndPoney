@@ -20,6 +20,14 @@ public abstract class Action extends Observable implements IAction {
 	
 	public Action(String name) {
 		this();
+		if(name == null) {
+			throw new NullPointerException("You must specify a non null name to this action !");
+		}
+		
+		if(name.isEmpty()) {
+			throw new IllegalArgumentException("You must specify a non empty name to this action !");
+		}
+		
 		this.name = name;
 	}
 	
