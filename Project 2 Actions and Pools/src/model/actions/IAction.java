@@ -29,6 +29,11 @@ public interface IAction {
 	public void doStep() throws ActionFinishedException, NoSuchElementException;
 
 	/**
+	 * Check the state of this action
+	 */
+	public void checkState();
+	
+	/**
 	 * @return true if this action is ready else false
 	 */
 	public boolean isReady();

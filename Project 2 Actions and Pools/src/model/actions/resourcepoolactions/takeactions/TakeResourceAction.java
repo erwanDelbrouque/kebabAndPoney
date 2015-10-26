@@ -2,6 +2,7 @@ package model.actions.resourcepoolactions.takeactions;
 
 import java.util.NoSuchElementException;
 
+import model.actions.IAction;
 import model.actions.resourcepoolactions.ResourcePoolAction;
 import model.exceptions.ActionFinishedException;
 import model.ressources.Resource;
@@ -22,9 +23,9 @@ public class TakeResourceAction<R extends Resource> extends ResourcePoolAction<R
 		resource = pool.provideRessource();
 		
 		this.user.setResource(resource);
-		this.actionState = ACTION_STATE.FINISHED;
+		checkState();
 	}
-
+	
 	@Override
 	public String getMessageBeforeAction() {
 		return user + " trying to get ressource from pool " + pool;	

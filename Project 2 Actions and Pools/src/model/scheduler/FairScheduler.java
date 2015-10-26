@@ -23,12 +23,12 @@ public class FairScheduler extends Scheduler {
 	}
 	
 	@Override
-	public void checkState(IAction lastAction) {
-		if(lastAction.isFinished()) {
+	public void checkState() {
+		if(currentAction.isFinished()) {
 			actionIterator.remove();
 		}
 		
-		super.checkState(lastAction);
+		super.checkState();
 	}
 	
 	@Override

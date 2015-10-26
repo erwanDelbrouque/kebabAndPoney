@@ -25,9 +25,7 @@ public class FreeResourceAction<R extends Resource> extends ResourcePoolAction<R
 		pool.freeRessource(user.getResource());
 		
 		user.resetResource();
-		
-		actionState = ACTION_STATE.FINISHED;
-		
+		checkState();
 	}
 
 	@Override

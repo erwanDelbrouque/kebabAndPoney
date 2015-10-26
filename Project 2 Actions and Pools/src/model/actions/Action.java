@@ -53,6 +53,9 @@ public abstract class Action extends Observable implements IAction {
 		}
 	}
 	
+	@Override
+	public abstract void checkState();
+	
 	protected void notify(String message){
 		setChanged();
 		notifyObservers(message);

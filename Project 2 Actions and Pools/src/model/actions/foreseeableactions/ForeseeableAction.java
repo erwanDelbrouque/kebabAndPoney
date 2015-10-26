@@ -30,10 +30,15 @@ public class ForeseeableAction extends Action {
 		
 		nbCurrentStep++;
 		
+		checkState();
+		
+	}
+	
+	@Override
+	public void checkState() {
 		if(nbCurrentStep >= nbStepsMax) {
 			this.actionState = ACTION_STATE.FINISHED;
 		}
-		
 	}
 	
 	@Override

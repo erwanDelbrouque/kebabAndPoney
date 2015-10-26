@@ -10,9 +10,14 @@ import model.actions.IAction;
 import model.exceptions.ActionFinishedException;
 import model.exceptions.ActionInProgressException;
 
+/**
+ * <b>A scheduler is an action which can contain and execute other Actions</b>
+ * @see IScheduler
+ */
 public abstract class Scheduler extends Action implements IScheduler {
 	
 	protected List<Action> actions;
+	protected IAction currentAction;
 	
 	public Scheduler() {
 		this("Scheduler");
@@ -64,12 +69,12 @@ public abstract class Scheduler extends Action implements IScheduler {
 			throw new NoSuchElementException("There are no actions in this scheduler, add some");
 		}
 		
-		IAction action = getNextAction();
-		this.notify(action.getMessageBeforeAction());
-		action.doStep();
-		this.notify(action.getMessageAfterAction());
+		currentAction = getNextAction();
+		this.notify(currentAction.getMessageBeforeAction());
+		currentAction.doStep();
+		this.notify(currentAction.getMessageAfterAction());
 		
-		checkState(action);
+		checkState();
 	}
 	
 	/* (non-Javadoc)
@@ -90,7 +95,7 @@ public abstract class Scheduler extends Action implements IScheduler {
 	 * @see model.scheduler.IScheduler#checkState(model.actions.IAction)
 	 */
 	@Override
-	public void checkState(IAction lastAction) {
+	public void checkState() {
 		if(this.actions.isEmpty()) {
 			this.actionState = ACTION_STATE.FINISHED;
 		}

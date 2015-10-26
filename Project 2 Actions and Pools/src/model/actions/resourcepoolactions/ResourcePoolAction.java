@@ -15,4 +15,9 @@ public abstract class ResourcePoolAction<R extends Resource> extends Action {
 		this.user = user;
 	}
 	
+	@Override
+	public void checkState() {
+		actionState = ACTION_STATE.FINISHED;
+	}
+	
 }

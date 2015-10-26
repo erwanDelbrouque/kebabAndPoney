@@ -21,12 +21,12 @@ public class SequentialScheduler extends Scheduler {
 	}
 
 	@Override
-	public void checkState(IAction lastAction) {
-		if(lastAction.isFinished()) {
-			this.actions.remove(lastAction);
+	public void checkState() {
+		if(currentAction.isFinished()) {
+			this.actions.remove(currentAction);
 		}
 		
-		super.checkState(lastAction);
+		super.checkState();
 		
 	}
 	
