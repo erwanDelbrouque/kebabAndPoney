@@ -2,6 +2,8 @@ package model.actions;
 
 import java.util.NoSuchElementException;
 
+import model.exceptions.ActionFinishedException;
+
 
 public interface IAction {
 	

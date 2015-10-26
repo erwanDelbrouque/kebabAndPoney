@@ -2,9 +2,9 @@ package action;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import model.actions.ActionFinishedException;
-import model.actions.ActionInProgressException;
 import model.actions.OneStepAction;
+import model.exceptions.ActionFinishedException;
+import model.exceptions.ActionInProgressException;
 import model.scheduler.FairScheduler;
 import model.scheduler.Scheduler;
 

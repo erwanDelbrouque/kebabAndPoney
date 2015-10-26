@@ -1,4 +1,4 @@
-package model.actions;
+package model.exceptions;
 
 public class ActionInProgressException extends Exception {
 	

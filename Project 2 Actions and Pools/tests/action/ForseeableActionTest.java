@@ -1,9 +1,9 @@
 package action;
 
 import model.actions.Action;
-import model.actions.ActionFinishedException;
 import model.actions.ForeseeableAction;
 import model.actions.OneStepAction;
+import model.exceptions.ActionFinishedException;
 
 import org.junit.Test;
 
@@ -31,6 +31,10 @@ public class ForseeableActionTest extends ActionTest {
 		
 	}
 	
+	@Test(expected=IllegalArgumentException.class)
+	public void invalidNbStepsArgumentTest() {
+		Action a = createAction(-1);
+	}
 	
 
 	

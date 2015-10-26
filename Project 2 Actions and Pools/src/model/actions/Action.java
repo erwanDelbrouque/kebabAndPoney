@@ -3,6 +3,8 @@ package model.actions;
 import java.util.NoSuchElementException;
 import java.util.Observable;
 
+import model.exceptions.ActionFinishedException;
+
 public abstract class Action extends Observable implements IAction {
 	
 	public enum ACTION_STATE {

@@ -1,5 +1,7 @@
 package model.actions;
 
+import model.exceptions.ActionFinishedException;
+import model.exceptions.ActionInProgressException;
 import model.scheduler.SequentialScheduler;
 
 public class BadAction extends SequentialScheduler {

@@ -1,4 +1,4 @@
-package model.actions;
+package model.exceptions;
 
 public class ActionFinishedException extends Exception {
 

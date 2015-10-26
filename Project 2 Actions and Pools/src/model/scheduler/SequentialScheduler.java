@@ -1,8 +1,8 @@
 package model.scheduler;
 
 import model.actions.Action;
-import model.actions.ActionFinishedException;
-import model.actions.ActionInProgressException;
+import model.exceptions.ActionFinishedException;
+import model.exceptions.ActionInProgressException;
 
 
 public class SequentialScheduler extends Scheduler {

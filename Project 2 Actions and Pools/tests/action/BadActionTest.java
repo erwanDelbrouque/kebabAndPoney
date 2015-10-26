@@ -2,10 +2,10 @@ package action;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import model.actions.ActionFinishedException;
-import model.actions.ActionInProgressException;
 import model.actions.BadAction;
 import model.actions.ForeseeableAction;
+import model.exceptions.ActionFinishedException;
+import model.exceptions.ActionInProgressException;
 
 import org.junit.Test;
 

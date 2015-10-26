@@ -1,7 +1,5 @@
 package model.scheduler;
 
-import model.actions.ActionFinishedException;
-import model.actions.ActionInProgressException;
 import model.actions.DressAction;
 import model.actions.FindCubicleAction;
 import model.actions.FreeBasketAction;
@@ -9,6 +7,8 @@ import model.actions.FreeCubicleAction;
 import model.actions.TakeBasketAction;
 import model.actions.TakeBathAction;
 import model.actions.UndressAction;
+import model.exceptions.ActionFinishedException;
+import model.exceptions.ActionInProgressException;
 import model.ressources.BasketPool;
 import model.ressources.BasketResourcefulUser;
 import model.ressources.CubiclePool;

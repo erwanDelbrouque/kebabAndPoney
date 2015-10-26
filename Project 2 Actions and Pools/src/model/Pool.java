@@ -1,8 +1,8 @@
 package model;
 
 import view.ConsoleView;
-import model.actions.ActionFinishedException;
-import model.actions.ActionInProgressException;
+import model.exceptions.ActionFinishedException;
+import model.exceptions.ActionInProgressException;
 import model.ressources.BasketPool;
 import model.ressources.CubiclePool;
 import model.scheduler.FairScheduler;

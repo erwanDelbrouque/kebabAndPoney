@@ -3,8 +3,8 @@ package model.scheduler;
 import java.util.List;
 
 import model.actions.Action;
-import model.actions.ActionFinishedException;
-import model.actions.ActionInProgressException;
+import model.exceptions.ActionFinishedException;
+import model.exceptions.ActionInProgressException;
 
 public interface IScheduler {
 

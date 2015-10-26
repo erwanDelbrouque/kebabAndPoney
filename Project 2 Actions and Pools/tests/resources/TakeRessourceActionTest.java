@@ -3,9 +3,9 @@ package resources;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
-import model.actions.ActionFinishedException;
 import model.actions.ResourcePoolAction;
 import model.actions.TakeResourceAction;
+import model.exceptions.ActionFinishedException;
 import model.ressources.MockedResource;
 import model.ressources.ResourcePool;
 import model.ressources.ResourcefulUser;

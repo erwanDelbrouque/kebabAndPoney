@@ -1,5 +1,7 @@
 package model.actions;
 
+import model.exceptions.ActionFinishedException;
+
 
 public class ForeseeableAction extends Action {
 
@@ -11,8 +13,13 @@ public class ForeseeableAction extends Action {
 
 	}
 	
-	public ForeseeableAction(String name, int nbStepsMax) {
+	public ForeseeableAction(String name, int nbStepsMax) throws IllegalArgumentException {
 		super(name);
+		//TODO : Verifiy the number > 0
+		if(nbStepsMax <= 0) {
+			throw new IllegalArgumentException("You must specify a number of steps > 1");
+		}
+		
 		this.nbStepsMax = nbStepsMax;
 
 	}

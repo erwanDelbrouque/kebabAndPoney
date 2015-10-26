@@ -1,8 +1,8 @@
 package model;
 
-import model.actions.ActionFinishedException;
-import model.actions.ActionInProgressException;
 import model.actions.ForeseeableAction;
+import model.exceptions.ActionFinishedException;
+import model.exceptions.ActionInProgressException;
 import model.scheduler.Scheduler;
 import model.scheduler.SequentialScheduler;
 

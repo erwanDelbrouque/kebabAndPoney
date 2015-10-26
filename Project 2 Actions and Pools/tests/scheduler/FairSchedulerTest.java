@@ -1,9 +1,9 @@
 package scheduler;
 
 import model.actions.Action;
-import model.actions.ActionFinishedException;
-import model.actions.ActionInProgressException;
 import model.actions.ForeseeableAction;
+import model.exceptions.ActionFinishedException;
+import model.exceptions.ActionInProgressException;
 import model.scheduler.FairScheduler;
 import model.scheduler.Scheduler;
 
