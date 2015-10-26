@@ -16,13 +16,7 @@ public abstract class ActionTest {
 	public void doStepWhileFinishedThrowsException() throws ActionFinishedException {
 		Action action = createAction();
 
-		while (!action.isFinished()) {
-			try {
-				action.doStep();
-			} catch (ActionFinishedException e) {
-				fail("action was not supposed to be finished, we just checked");
-			}
-		}
+		doStepUntilFinished(action);
 
 		assertTrue(action.isFinished());
 		action.doStep();
@@ -50,6 +44,16 @@ public abstract class ActionTest {
 		assertFalse(action.isInProgress());
 		assertTrue(action.isFinished());
 
+	}
+	
+	protected void doStepUntilFinished(Action action) {
+		while (!action.isFinished()) {
+			try {
+				action.doStep();
+			} catch (ActionFinishedException e) {
+				fail("action was not supposed to be finished, we just checked");
+			}
+		}
 	}
 	
 	@Test

@@ -1,5 +1,7 @@
 package scheduler;
 
+import java.util.NoSuchElementException;
+
 import model.actions.Action;
 import model.actions.foreseeableactions.ForeseeableAction;
 import model.actions.foreseeableactions.OneStepAction;
@@ -34,8 +36,14 @@ public abstract class SchedulerTest extends ActionTest {
 		onlyOneValidStateAtEachMoment(scheduler);
 	}
 	
+	@Test(expected=NullPointerException.class)
+	public void addNullActionTest() throws ActionFinishedException, ActionInProgressException {
+		Scheduler s = createScheduler();
+		s.addAction(null);
+	}
+	
 	@Test(expected=ActionInProgressException.class)
-	public void cannotAddActionWhileSchedulerInProgress() throws ActionFinishedException, ActionInProgressException {
+	public void addActionWhileSchedulerInProgressTest() throws ActionFinishedException, ActionInProgressException {
 		Scheduler s1 = createScheduler();
 		Action a1 = createAction(2);
 		Action a2 = createAction(2);
@@ -48,7 +56,7 @@ public abstract class SchedulerTest extends ActionTest {
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
-	public void cannotAddSameActionInScheduler() throws ActionFinishedException, ActionInProgressException {
+	public void addSameActionInSchedulerTest() throws ActionFinishedException, ActionInProgressException {
 		Scheduler s1 = createScheduler();
 		Action a1 = createAction();
 		s1.addAction(a1);
@@ -56,7 +64,25 @@ public abstract class SchedulerTest extends ActionTest {
 		s1.addAction(a1);
 	}
 	
-	//TODO : Add a test to test a scheduler in a scheduler
+	@Test(expected=ActionFinishedException.class)
+	public void addActionWhenSchedulerFinished() throws IllegalArgumentException, ActionFinishedException, ActionInProgressException {
+		Scheduler s = createScheduler();
+		s.addAction(createAction());
+		s.addAction(createAction());
+		
+		doStepUntilFinished(s);
+		
+		s.addAction(createAction());
+		
+	}
+	
+	@Test(expected=NoSuchElementException.class)
+	public void doStepWithoutActionsAdded() throws ActionFinishedException {
+		Scheduler s = createScheduler();
+		isReadyTest(s);
+		s.doStep();
+	}
+
 	
 	
 }

@@ -25,7 +25,7 @@ public class FairSchedulerTest extends SchedulerTest {
 		Action a1 = new ForeseeableAction(2);
 		Action a2 = new ForeseeableAction(2);
 
-		scheduler.addAction(a1, a2);
+		scheduler.addActions(a1, a2);
 
 		isReadyTest(scheduler);
 		isReadyTest(a1);
@@ -57,7 +57,8 @@ public class FairSchedulerTest extends SchedulerTest {
 		
 		
 	}
-
+	
+	//TODO : Add a test to test a scheduler in a scheduler
 	
 	
 	

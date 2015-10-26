@@ -26,7 +26,7 @@ public class SequentialSchedulerTest extends SchedulerTest {
 		Action a1 = createAction(2);
 		Action a2 = createAction(2);
 
-		scheduler.addAction(a1, a2);
+		scheduler.addActions(a1, a2);
 
 		isReadyTest(scheduler);
 		isReadyTest(a1);

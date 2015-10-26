@@ -2,6 +2,7 @@ package model.scheduler;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Observer;
 
 import model.actions.Action;
@@ -23,9 +24,7 @@ public abstract class Scheduler extends Action implements IScheduler {
 	
 	public Scheduler(Action ... actions) throws ActionFinishedException, ActionInProgressException {
 		this();
-		for(Action action : actions) {
-			addAction(action);
-		}
+		addActions(actions);
 	}
 
 	@Override
@@ -36,6 +35,10 @@ public abstract class Scheduler extends Action implements IScheduler {
 		
 		if(this.isInProgress()) {
 			throw new ActionInProgressException("You can't add actions in progress");
+		}
+		
+		if(action == null) {
+			throw new NullPointerException("You must add a non null action");
 		}
 		
 		if(this.actions.contains(action)) {
@@ -51,7 +54,7 @@ public abstract class Scheduler extends Action implements IScheduler {
 		super.doStep();
 		
 		if(this.actions.isEmpty()) {
-			throw new ActionFinishedException("There are no actions in this scheduler, add some");
+			throw new NoSuchElementException("There are no actions in this scheduler, add some");
 		}
 		
 		Action action = getNextAction();
@@ -74,7 +77,7 @@ public abstract class Scheduler extends Action implements IScheduler {
 		}
 	}
 
-	public void addAction(Action... actions) throws ActionFinishedException, ActionInProgressException {
+	public void addActions(Action... actions) throws ActionFinishedException, ActionInProgressException {
 		for(Action action : actions) {
 			addAction(action);
 		}
