@@ -15,18 +15,38 @@ import model.exceptions.ActionFinishedException;
  */
 public abstract class Action extends Observable implements IAction {
 	
+	/**
+	 * The different states of an actions.
+	 */
 	public enum ACTION_STATE {
-		READY, IN_PROGRESS, FINISHED;
+		READY, //When doStep() hasn't been called yet
+		IN_PROGRESS, //When doStep() has been called at least once
+		FINISHED; //When the action is finished (depends of subclasses finishing way
 	}
 	
+	/**
+	 * The action name
+	 */
 	protected String name;
+	
+	/**
+	 * The action state
+	 * 
+	 *  @see ACTION_STATE
+	 */
 	protected ACTION_STATE actionState;
 	
 	public Action() {
 		this.actionState = ACTION_STATE.READY;
 	}
 	
-	public Action(String name) {
+	/**
+	 * Constructor with name
+	 * @param name The name of this action
+	 * @throws NullPointerException When name is null
+	 * @throws IllegalArgumentException When name is empty
+	 */
+	public Action(String name) throws NullPointerException, IllegalArgumentException {
 		this();
 		if(name == null) {
 			throw new NullPointerException("You must specify a non null name to this action !");
@@ -53,6 +73,9 @@ public abstract class Action extends Observable implements IAction {
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see model.actions.IAction#checkState()
+	 */
 	@Override
 	public abstract void checkState();
 	

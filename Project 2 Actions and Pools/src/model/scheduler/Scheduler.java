@@ -16,18 +16,40 @@ import model.exceptions.ActionInProgressException;
  */
 public abstract class Scheduler extends Action implements IScheduler {
 	
+	/**
+	 * The actions executed by this scheduler
+	 */
 	protected List<Action> actions;
+	
+	/**
+	 * The current (and last) action that is executed
+	 */
 	protected IAction currentAction;
 	
+	/**
+	 * Default constructor with default name ("Scheduler")
+	 */
 	public Scheduler() {
 		this("Scheduler");
 	}
 	
-	public Scheduler(String name) {
+	/**
+	 * Constructor with a name
+	 * @param name The name of this scheduler
+	 * @throws NullPointerException When the name is null
+	 * @throws IllegalArgumentException When the name is empty
+	 */
+	public Scheduler(String name) throws NullPointerException, IllegalArgumentException {
 		super(name);
 		this.actions = new ArrayList<Action>();
 	}
 	
+	/**
+	 * Constructor with actions at the begining 
+	 * @param actions The actions of this scheduler
+	 * @throws ActionFinishedException When we try to add an action while this scheduler has finished his activity (impossible in this case)
+	 * @throws ActionInProgressException When we try to add an action while this scheduler has begun his activity (impossible in this case)
+	 */
 	public Scheduler(Action ... actions) throws ActionFinishedException, ActionInProgressException {
 		this();
 		addActions(actions);

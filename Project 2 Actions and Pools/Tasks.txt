@@ -1,0 +1,29 @@
+Tests à faire
+
+PACKAGE SCHEDULER
+Classe Swimmer
+Tester les valeur négatives pour timeToUndress timeToBathe et TimeToDress
+Tester la création d’un nageur
+tester createActions
+
+
+2. PACKAGE RESOURCES.POOL
+Classe ResourcePool
+Tester le cas ou indexRessourceUsed est inférieur à 1 dans la methode freeRessource et “expecter” une exception IllegalArgumentException
+Ajouter des tests qui créé un ResourcePool avec un nom null, puis un nom vide puis un nombre d’actions négatif ou nul
+
+Classe ResourcePoolAction
+Tester si pool et user sont différent de nul
+
+
+Classe FreeResourceAction
+Tester si user.getRessource est null on renvoi  bien un throw 
+Tester le reste de la fonction doStep dans cette classe
+
+Classe Action
+Tester le name == null et name.isEmpty
+
+Classe ForeseeableAction
+Tester checkState 
+
+Tester un FairScheduler dans un sequential scheduler et inversement

@@ -8,7 +8,17 @@ import model.ressources.pools.CubiclePool;
 import model.scheduler.FairScheduler;
 import model.scheduler.Swimmer;
 
+/**
+ * <b>This class is the main class of this program</b>
+ *
+ */
 public class Pool {
+	/**
+	 * Main function
+	 * @param args Arguments passed to the program
+	 * @throws ActionFinishedException When an action is executed after being finished
+	 * @throws ActionInProgressException When a scheduler tries to add an action when it already started
+	 */
 	public static void main(String[] args) throws ActionFinishedException, ActionInProgressException {
 		ConsoleView console = new ConsoleView();
 		BasketPool baskets = new BasketPool(6);

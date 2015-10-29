@@ -5,13 +5,39 @@ import java.util.NoSuchElementException;
 
 import model.ressources.Resource;
 
+/**
+ * <b>This class represents a Pool containing resources that can be used by users.</b>
+ * It provides its resource to users thanks to actions
+ *
+ * @param <R> The type of the resources this pool contains
+ * 
+ * @see IResourcePool
+ */
 public abstract class ResourcePool<R extends Resource> implements IResourcePool<R> {
 	
+	/**
+	 * The name of this resource pool 
+	 */
 	protected String name;
+	
+	/**
+	 * A list of free resources 
+	 */
 	protected ArrayList<R> freeResources;
+	
+	/**
+	 * A list of the used resources 
+	 */
 	protected ArrayList<R> usedResources;
 	
-	public ResourcePool(String name, int n) {
+	/**
+	 * Constructor with name and number of resource to create
+	 * @param name The name
+	 * @param n The number of resources
+	 * @throws NullPointerException When name is null
+	 * @throws IllegalArgumentException When name is empty or n is <= 0
+	 */
+	public ResourcePool(String name, int n) throws NullPointerException, IllegalArgumentException {
 		if(name == null) {
 			throw new NullPointerException("You must specify a non null name !");
 		}

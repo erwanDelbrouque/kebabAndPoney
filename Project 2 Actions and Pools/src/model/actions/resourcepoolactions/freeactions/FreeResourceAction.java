@@ -8,8 +8,18 @@ import model.ressources.Resource;
 import model.ressources.pools.ResourcePool;
 import model.ressources.users.ResourcefulUser;
 
+/**
+ * <b>This action frees a resource from a user and put it in the corresponding pool</b>
+ *
+ * @param <R> The freed resource type
+ */
 public class FreeResourceAction<R extends Resource> extends ResourcePoolAction<R>{
 
+	/**
+	 * Constructor with a pool and a user
+	 * @param pool The pool
+	 * @param user The user
+	 */
 	public FreeResourceAction(ResourcePool<R> pool, ResourcefulUser<R> user) {
 		super(pool, user);
 	}
