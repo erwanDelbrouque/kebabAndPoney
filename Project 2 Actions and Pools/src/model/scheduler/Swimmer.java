@@ -66,7 +66,7 @@ public class Swimmer extends SequentialScheduler {
 	 * @throws ActionFinishedException When we try to add an action while this swimmer has finished his activity (impossible in this case)
 	 * @throws ActionInProgressException When we try to add an action while this swimmer has begun his activity (impossible in this case)
 	 */
-	public Swimmer(String name, BasketPool basketsPool, CubiclePool cubiclesPool, int timeToUndress, int timeToBathe, int timeToDress) throws ActionFinishedException, ActionInProgressException{
+	public Swimmer(String name, BasketPool basketsPool, CubiclePool cubiclesPool, int timeToUndress, int timeToBathe, int timeToDress) throws ActionFinishedException, ActionInProgressException, IllegalArgumentException{
 		super(name);
 		this.basketsPool = basketsPool;
 		this.cubiclesPool = cubiclesPool;
@@ -98,7 +98,7 @@ public class Swimmer extends SequentialScheduler {
 	 * @throws ActionFinishedException When we try to add an action while this swimmer has finished his activity (impossible in this case)
 	 * @throws ActionInProgressException When we try to add an action while this swimmer has begun his activity (impossible in this case)
 	 */
-	public void createActions(BasketPool basketsPool, CubiclePool cubiclesPool, int timeToUndress, int timeToBathe, int timeToDress) throws ActionFinishedException, ActionInProgressException {
+	public void createActions(BasketPool basketsPool, CubiclePool cubiclesPool, int timeToUndress, int timeToBathe, int timeToDress) throws ActionFinishedException, ActionInProgressException, IllegalArgumentException {
 		this.addAction(new TakeBasketAction(basketsPool, basketUser));
 		this.addAction(new FindCubicleAction(cubiclesPool, cubiclesUser));
 		this.addAction(new UndressAction(timeToUndress));
