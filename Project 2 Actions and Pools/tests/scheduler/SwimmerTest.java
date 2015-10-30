@@ -31,17 +31,17 @@ public class SwimmerTest extends SequentialSchedulerTest {
 		Swimmer mockedSwimmer = new Swimmer("test",baskets, cubicles, 4, -1, 5);
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = NullPointerException.class)
 	public void BasketPoolNullTest() throws ActionFinishedException, ActionInProgressException, IllegalArgumentException{
-		BasketPool baskets = new BasketPool(0);
+		BasketPool baskets = null;
 		CubiclePool cubicles = new CubiclePool(3);
 		Swimmer mockedSwimmer = new Swimmer("test",baskets, cubicles, 4, 1, 5);
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = NullPointerException.class)
 	public void cubiclePoolNullTest() throws ActionFinishedException, ActionInProgressException, IllegalArgumentException{
 		BasketPool baskets = new BasketPool(3);
-		CubiclePool cubicles = new CubiclePool(0);
+		CubiclePool cubicles = null;
 		Swimmer mockedSwimmer = new Swimmer("test",baskets, cubicles, 4, 1, 5);
 	}
 }

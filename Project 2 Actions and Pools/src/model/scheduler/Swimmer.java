@@ -66,8 +66,14 @@ public class Swimmer extends SequentialScheduler {
 	 * @throws ActionFinishedException When we try to add an action while this swimmer has finished his activity (impossible in this case)
 	 * @throws ActionInProgressException When we try to add an action while this swimmer has begun his activity (impossible in this case)
 	 */
-	public Swimmer(String name, BasketPool basketsPool, CubiclePool cubiclesPool, int timeToUndress, int timeToBathe, int timeToDress) throws ActionFinishedException, ActionInProgressException, IllegalArgumentException{
+	public Swimmer(String name, BasketPool basketsPool, CubiclePool cubiclesPool, int timeToUndress, int timeToBathe, int timeToDress) throws ActionFinishedException, ActionInProgressException, IllegalArgumentException, NullPointerException{
 		super(name);
+		if(basketsPool == null){
+			throw  new NullPointerException("You must specify a null argument for basketsPool");
+		}
+		if(cubiclesPool == null){
+			throw  new NullPointerException("You must specify a null argument for cubiclesPool");
+		}
 		this.basketsPool = basketsPool;
 		this.cubiclesPool = cubiclesPool;
 		basketUser = new BasketResourcefulUser(this.name);
