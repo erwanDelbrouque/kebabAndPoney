@@ -4,13 +4,14 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import mockedclasses.resources.MockedResource;
+import model.actions.IAction;
+import model.actions.foreseeableactions.ForeseeableAction;
 import model.actions.resourcepoolactions.ResourcePoolAction;
 import model.actions.resourcepoolactions.freeactions.FreeResourceAction;
 import model.exceptions.ActionFinishedException;
@@ -33,6 +34,11 @@ public class FreeResourceActionTest extends ResourcePoolActionTest {
 		r =  createAction();
 		mockedResource = pool.provideRessource();
 		user.setResource(mockedResource);
+	}
+
+	@Override
+	protected IAction createAction(String name, int nbStepsMax) {
+		return new ForeseeableAction(name,nbStepsMax);
 	}
 	
 	@Test(expected=NoSuchElementException.class)

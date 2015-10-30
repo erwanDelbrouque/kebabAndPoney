@@ -20,6 +20,7 @@ public class FairSchedulerTest extends SchedulerTest {
 		return new FairScheduler(actions);
 	}
 	
+	
 	@Test
 	public void fairSchedulerTest() throws ActionFinishedException, ActionInProgressException {
 		Scheduler scheduler = createScheduler();

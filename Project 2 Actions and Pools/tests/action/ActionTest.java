@@ -4,13 +4,17 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import model.actions.IAction;
+import model.actions.foreseeableactions.ForeseeableAction;
 import model.exceptions.ActionFinishedException;
 
 import org.junit.Test;
 
+import mockedclasses.resources.MockedResourcePool;
+
 public abstract class ActionTest {
 	protected abstract IAction createAction();
 	protected abstract IAction createAction(int nbStepsMax);
+	protected abstract IAction createAction(String name,int nbStepsMax);
 
 	@Test(expected = ActionFinishedException.class, timeout = 2000)
 	public void doStepWhileFinishedThrowsException() throws ActionFinishedException {
@@ -71,4 +75,13 @@ public abstract class ActionTest {
 		isFinishedTest(action);
 	}
 
+	@Test(expected = NullPointerException.class)
+	public void nullNameTest() throws NullPointerException, IllegalArgumentException {
+		new ForeseeableAction(null,1);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void emptyNameTest() throws NullPointerException, IllegalArgumentException {
+		new ForeseeableAction("",1);
+	}
 }

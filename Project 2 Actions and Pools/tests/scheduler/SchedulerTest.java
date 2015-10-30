@@ -3,6 +3,7 @@ package scheduler;
 import java.util.NoSuchElementException;
 
 import model.actions.Action;
+import model.actions.IAction;
 import model.actions.foreseeableactions.ForeseeableAction;
 import model.actions.foreseeableactions.OneStepAction;
 import model.exceptions.ActionFinishedException;
@@ -29,6 +30,10 @@ public abstract class SchedulerTest extends ActionTest {
 		return new ForeseeableAction(nbStepsMax);
 	}
 
+	@Override
+	protected IAction createAction(String name, int nbStepsMax) {
+		return new ForeseeableAction(name,nbStepsMax);
+	}
 	
 	@Test
 	public void onlyOneValidStateAtEachMomentForScheduler() throws ActionFinishedException, ActionInProgressException {

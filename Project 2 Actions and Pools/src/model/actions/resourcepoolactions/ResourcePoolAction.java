@@ -32,10 +32,10 @@ public abstract class ResourcePoolAction<R extends Resource> extends Action {
 	 */
 	public ResourcePoolAction(ResourcePool<R> pool, ResourcefulUser<R> user) {
 		if(pool == null){
-			throw new NullPointerException("Its null motherfucker go put good value ! ");
+			throw new NullPointerException("You must specify a none null pool argument");
 		}
 		if(user == null){
-			throw new NullPointerException("");
+			throw new NullPointerException("You must specify a none null user argument");
 		}
 		this.pool = pool;
 		this.user = user;

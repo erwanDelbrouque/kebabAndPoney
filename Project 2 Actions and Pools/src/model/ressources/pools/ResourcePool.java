@@ -43,7 +43,7 @@ public abstract class ResourcePool<R extends Resource> implements IResourcePool<
 		}
 		
 		if(name.isEmpty()) {
-			throw new NullPointerException("You must specify a non empty name !");
+			throw new IllegalArgumentException("You must specify a non empty name !");
 		}
 		
 		if(n <= 0) {

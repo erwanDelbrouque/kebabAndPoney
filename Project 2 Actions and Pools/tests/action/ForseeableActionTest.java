@@ -18,6 +18,10 @@ public class ForseeableActionTest extends ActionTest {
 	protected IAction createAction(int nbStepsMax) {
 		return new ForeseeableAction(nbStepsMax);
 	}
+	@Override
+	protected IAction createAction(String name, int nbStepsMax) {
+		return new ForeseeableAction(name, nbStepsMax);
+	}
 	
 	@Test
 	public void foreseeableTest() throws ActionFinishedException {
@@ -35,6 +39,8 @@ public class ForseeableActionTest extends ActionTest {
 	public void invalidNbStepsArgumentTest() {
 		createAction(-1);
 	}
+
+	
 	
 
 	

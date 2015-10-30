@@ -1,19 +1,14 @@
 package resources;
 
+import org.junit.Test;
+
+import action.ActionTest;
 import mockedclasses.resources.MockedResource;
 import mockedclasses.resources.MockedResourcePool;
 import model.actions.IAction;
 import model.actions.resourcepoolactions.ResourcePoolAction;
-import model.ressources.Basket;
 import model.ressources.pools.ResourcePool;
 import model.ressources.users.ResourcefulUser;
-
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-import org.junit.Test;
-
-import action.ActionTest;
 
 public abstract class ResourcePoolActionTest extends ActionTest {
 	
@@ -34,5 +29,14 @@ public abstract class ResourcePoolActionTest extends ActionTest {
 	
 	protected abstract ResourcePoolAction<MockedResource> createAction(ResourcePool<MockedResource> pool, ResourcefulUser<MockedResource> user);
 
+	@Test(expected = NullPointerException.class)
+	public void nullPoolTest(){
+		createAction(null,user);
+	}
+	
+	@Test(expected = NullPointerException.class)
+	public void nullUserTest(){
+		createAction(pool,null);
+	}
 	
 }
