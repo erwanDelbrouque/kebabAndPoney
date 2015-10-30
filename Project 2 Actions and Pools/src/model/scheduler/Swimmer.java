@@ -69,10 +69,10 @@ public class Swimmer extends SequentialScheduler {
 	public Swimmer(String name, BasketPool basketsPool, CubiclePool cubiclesPool, int timeToUndress, int timeToBathe, int timeToDress) throws ActionFinishedException, ActionInProgressException, IllegalArgumentException, NullPointerException{
 		super(name);
 		if(basketsPool == null){
-			throw  new NullPointerException("You must specify a null argument for basketsPool");
+			throw  new NullPointerException("You must specify a non null argument for basketsPool");
 		}
 		if(cubiclesPool == null){
-			throw  new NullPointerException("You must specify a null argument for cubiclesPool");
+			throw  new NullPointerException("You must specify a non null argument for cubiclesPool");
 		}
 		this.basketsPool = basketsPool;
 		this.cubiclesPool = cubiclesPool;
