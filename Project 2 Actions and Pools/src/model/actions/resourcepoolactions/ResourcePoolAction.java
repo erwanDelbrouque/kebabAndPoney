@@ -31,7 +31,12 @@ public abstract class ResourcePoolAction<R extends Resource> extends Action {
 	 * @param user The user
 	 */
 	public ResourcePoolAction(ResourcePool<R> pool, ResourcefulUser<R> user) {
-		//TODO : Verification here and tests
+		if(pool == null){
+			throw new NullPointerException("Its null motherfucker go put good value ! ");
+		}
+		if(user == null){
+			throw new NullPointerException("");
+		}
 		this.pool = pool;
 		this.user = user;
 	}
