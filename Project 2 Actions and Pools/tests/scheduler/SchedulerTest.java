@@ -15,6 +15,11 @@ import org.junit.Test;
 
 import action.ActionTest;
 
+/**
+ * Cette classe test la classe Scheduler
+ *
+ */
+
 public abstract class SchedulerTest extends ActionTest {
 	
 	protected abstract Scheduler createScheduler();
