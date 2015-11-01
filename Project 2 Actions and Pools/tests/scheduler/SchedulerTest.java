@@ -16,7 +16,7 @@ import org.junit.Test;
 import action.ActionTest;
 
 /**
- * Cette classe test la classe Scheduler
+ * Ce test teste la classe Scheduler
  *
  */
 
