@@ -7,6 +7,7 @@ import model.exceptions.ActionInProgressException;
 import model.scheduler.FairScheduler;
 import model.scheduler.IScheduler;
 import model.scheduler.Scheduler;
+import model.scheduler.SequentialScheduler;
 
 import org.junit.Test;
 
