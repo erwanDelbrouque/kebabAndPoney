@@ -7,7 +7,7 @@ import model.exceptions.ActionFinishedException;
 
 import org.junit.Test;
 
-public class ForseeableActionTest extends ActionTest {
+public class ForeseeableActionTest extends ActionTest {
 
 	@Override
 	protected IAction createAction() {
