@@ -64,8 +64,8 @@ public class FairSchedulerTest extends SchedulerTest {
 
 	@Test 
 	public void fairSchedulerInFairScheduler() throws ActionFinishedException, ActionInProgressException{
-		Scheduler scheduler1 = new FairScheduler();
-		Scheduler scheduler2 = new FairScheduler();
+		Scheduler scheduler1 = createScheduler();
+		Scheduler scheduler2 = createScheduler();
 		
 		Action a1 = new ForeseeableAction(2);
 		Action a2 = new ForeseeableAction(2);
