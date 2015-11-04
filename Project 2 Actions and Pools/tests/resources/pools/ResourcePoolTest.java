@@ -1,4 +1,4 @@
-package resources.pool;
+package resources.pools;
 
 import static org.junit.Assert.assertEquals;
 import mockedclasses.resources.MockedResourcePool;
