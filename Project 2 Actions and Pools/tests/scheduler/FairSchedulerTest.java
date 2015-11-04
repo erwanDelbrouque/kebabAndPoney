@@ -7,6 +7,7 @@ import model.exceptions.ActionInProgressException;
 import model.scheduler.FairScheduler;
 import model.scheduler.IScheduler;
 import model.scheduler.Scheduler;
+import model.scheduler.SequentialScheduler;
 
 import org.junit.Test;
 
@@ -60,7 +61,6 @@ public class FairSchedulerTest extends SchedulerTest {
 		
 	}
 	
-	//TODO : Add a test to test a scheduler in a scheduler
 	@Test 
 	public void fairSchedulerInFairScheduler() throws ActionFinishedException, ActionInProgressException{
 		Scheduler scheduler1 = new FairScheduler();
@@ -155,6 +155,99 @@ public class FairSchedulerTest extends SchedulerTest {
 		isFinishedTest(a4);
 	}
 	
-	
+	@Test 
+	public void sequentialSchedulerInFairScheduler() throws ActionFinishedException, ActionInProgressException{
+		Scheduler fs = createScheduler();
+		Scheduler ss = new SequentialScheduler();
+		
+		Action a1 = new ForeseeableAction(2);
+		Action a2 = new ForeseeableAction(2);
+		Action a3 = new ForeseeableAction(2);
+		Action a4 = new ForeseeableAction(2);
+		
+		ss.addActions(a1,a2);
+		// one sequentialScheduler inside a fairScheduler
+		fs.addActions(a3,ss,a4);
+		
+		isReadyTest(fs);
+		isReadyTest(a3);
+		isReadyTest(ss);
+		isReadyTest(a1);
+		isReadyTest(a2);
+		isReadyTest(a4);
+		
+		fs.doStep();
+		
+		isInProgressTest(fs);
+		isInProgressTest(a3);
+		isReadyTest(ss);
+		isReadyTest(a1);
+		isReadyTest(a2);
+		isReadyTest(a4);
+		
+		fs.doStep();
+		
+		isInProgressTest(fs);
+		isInProgressTest(a3);
+		isInProgressTest(ss);
+		isInProgressTest(a1);
+		isReadyTest(a2);
+		isReadyTest(a4);
+		
+		fs.doStep();
+		
+		isInProgressTest(fs);
+		isInProgressTest(a3);
+		isInProgressTest(ss);
+		isInProgressTest(a1);
+		isReadyTest(a2);
+		isInProgressTest(a4);
+		
+		fs.doStep();
+		
+		isInProgressTest(fs);
+		isFinishedTest(a3);
+		isInProgressTest(ss);
+		isInProgressTest(a1);
+		isReadyTest(a2);
+		isInProgressTest(a4);
+		
+		
+		fs.doStep();
+		
+		isInProgressTest(fs);
+		isFinishedTest(a3);
+		isInProgressTest(ss);
+		isFinishedTest(a1);
+		isReadyTest(a2);
+		isInProgressTest(a4);
+		
+		fs.doStep();
+		
+		isInProgressTest(fs);
+		isFinishedTest(a3);
+		isInProgressTest(ss);
+		isFinishedTest(a1);
+		isReadyTest(a2);
+		isFinishedTest(a4);
+		
+		fs.doStep();
+		
+		isInProgressTest(fs);
+		isFinishedTest(a3);
+		isInProgressTest(ss);
+		isFinishedTest(a1);
+		isInProgressTest(a2);
+		isFinishedTest(a4);
+		
+		fs.doStep();
+		
+		isFinishedTest(fs);
+		isFinishedTest(a3);
+		isFinishedTest(ss);
+		isFinishedTest(a1);
+		isFinishedTest(a2);
+		isFinishedTest(a4);
+	}
 
 }
