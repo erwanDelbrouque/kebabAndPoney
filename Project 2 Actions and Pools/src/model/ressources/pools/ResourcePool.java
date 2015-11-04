@@ -78,6 +78,10 @@ public abstract class ResourcePool<R extends Resource> implements IResourcePool<
 	
 	@Override
 	public void freeRessource(R ressource) throws IllegalArgumentException {
+		if(ressource == null) {
+			throw new NullPointerException("You must specify a resource to free");
+		}
+		
 		int indexRessourceUsed = this.usedResources.indexOf(ressource);
 		
 		if(indexRessourceUsed != -1) {

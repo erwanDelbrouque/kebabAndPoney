@@ -47,6 +47,11 @@ public class ResourcePoolTest extends ActionTest{
 	public void invalideNbTest() throws NullPointerException, IllegalArgumentException {
 		new MockedResourcePool("test",-1);
 	}
+	
+	@Test(expected=NullPointerException.class)
+	public void freeNullResource() {
+		new MockedResourcePool(1).freeRessource(null);
+	}
 
 	
 }

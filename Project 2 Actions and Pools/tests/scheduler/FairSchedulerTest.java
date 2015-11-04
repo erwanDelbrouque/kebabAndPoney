@@ -1,5 +1,7 @@
 package scheduler;
 
+import org.junit.Test;
+
 import model.actions.Action;
 import model.actions.foreseeableactions.ForeseeableAction;
 import model.exceptions.ActionFinishedException;
@@ -8,8 +10,6 @@ import model.scheduler.FairScheduler;
 import model.scheduler.IScheduler;
 import model.scheduler.Scheduler;
 import model.scheduler.SequentialScheduler;
-
-import org.junit.Test;
 
 public class FairSchedulerTest extends SchedulerTest {
 	
@@ -61,6 +61,7 @@ public class FairSchedulerTest extends SchedulerTest {
 		
 	}
 	
+
 	@Test 
 	public void fairSchedulerInFairScheduler() throws ActionFinishedException, ActionInProgressException{
 		Scheduler scheduler1 = new FairScheduler();
@@ -249,5 +250,4 @@ public class FairSchedulerTest extends SchedulerTest {
 		isFinishedTest(a2);
 		isFinishedTest(a4);
 	}
-
 }

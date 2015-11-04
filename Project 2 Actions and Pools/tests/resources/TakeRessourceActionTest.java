@@ -5,7 +5,6 @@ import java.util.NoSuchElementException;
 
 import mockedclasses.resources.MockedResource;
 import model.actions.IAction;
-import model.actions.foreseeableactions.ForeseeableAction;
 import model.actions.resourcepoolactions.ResourcePoolAction;
 import model.actions.resourcepoolactions.takeactions.TakeResourceAction;
 import model.exceptions.ActionFinishedException;

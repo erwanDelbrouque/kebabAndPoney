@@ -9,8 +9,6 @@ import model.exceptions.ActionFinishedException;
 
 import org.junit.Test;
 
-import mockedclasses.resources.MockedResourcePool;
-
 public abstract class ActionTest {
 	protected abstract IAction createAction();
 	protected abstract IAction createAction(int nbStepsMax);
