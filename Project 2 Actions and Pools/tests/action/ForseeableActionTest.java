@@ -23,6 +23,9 @@ public class ForseeableActionTest extends ActionTest {
 		return new ForeseeableAction(name, nbStepsMax);
 	}
 	
+	/**
+	 * Tests a foreseeable action
+	 */
 	@Test
 	public void foreseeableTest() throws ActionFinishedException {
 		IAction fa = createAction(2);
@@ -35,6 +38,9 @@ public class ForseeableActionTest extends ActionTest {
 		
 	}
 	
+	/**
+	 * Tests the creation of a foreseeable action with an invalid number of steps
+	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void invalidNbStepsArgumentTest() {
 		createAction(-1);

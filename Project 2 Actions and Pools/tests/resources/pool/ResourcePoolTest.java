@@ -1,20 +1,22 @@
 package resources.pool;
 
 import static org.junit.Assert.assertEquals;
+import mockedclasses.resources.MockedResourcePool;
+import model.actions.IAction;
+import model.actions.foreseeableactions.ForeseeableAction;
+import model.actions.foreseeableactions.OneStepAction;
 
 import org.junit.Test;
 
 import action.ActionTest;
-import mockedclasses.resources.MockedResourcePool;
-import model.actions.IAction;
-import model.actions.foreseeableactions.ForeseeableAction;
 
 public class ResourcePoolTest extends ActionTest{
 
-	MockedResourcePool mockedResourcePool;
+	protected MockedResourcePool mockedResourcePool;
+	
 	@Override
 	protected IAction createAction() {
-		return createAction(1);
+		return new OneStepAction();
 	}
 
 	@Override
@@ -26,9 +28,13 @@ public class ResourcePoolTest extends ActionTest{
 		return new ForeseeableAction(name,nbStepsMax);
 	}
 	
+	protected MockedResourcePool createPool(String name, int nbResources) {
+		return new MockedResourcePool(name, nbResources);
+	}
+	
 	@Test
 	public void creationTest(){
-		mockedResourcePool  = new  MockedResourcePool("test",2);
+		mockedResourcePool = createPool("test", 2);
 		assertEquals(2, mockedResourcePool.getFreeResources().size());
 		assertEquals("test", mockedResourcePool.getName());
 	}
