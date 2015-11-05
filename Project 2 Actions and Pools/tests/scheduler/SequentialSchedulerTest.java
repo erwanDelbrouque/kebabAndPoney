@@ -12,16 +12,25 @@ import org.junit.Test;
 
 public class SequentialSchedulerTest extends SchedulerTest {
 
+	/* (non-Javadoc)
+	 * @see scheduler.SchedulerTest#createScheduler()
+	 */
 	@Override
 	protected Scheduler createScheduler() {
 		return new SequentialScheduler();
 	}
 
+	/* (non-Javadoc)
+	 * @see scheduler.SchedulerTest#createScheduler(model.actions.Action[])
+	 */
 	@Override
 	protected IScheduler createScheduler(Action... actions) throws ActionFinishedException, ActionInProgressException {
 		return new SequentialScheduler(actions);
 	}
 
+	/**
+	 * Tests a sequential scheduler with only actions in it
+	 */
 	@Test
 	public void sequentialSchedulerTest() throws ActionFinishedException, ActionInProgressException {
 		Scheduler scheduler = createScheduler();
@@ -60,6 +69,9 @@ public class SequentialSchedulerTest extends SchedulerTest {
 
 	}
 
+	/**
+	 * Tests a sequential scheduler with action and another sequential scheduler in it
+	 */
 	@Test
 	public void sequentialSchedulerInSequentialSchedulerTest() throws ActionFinishedException, ActionInProgressException {
 		Scheduler ss = createScheduler();
@@ -127,6 +139,9 @@ public class SequentialSchedulerTest extends SchedulerTest {
 
 	}
 
+	/**
+	 * Tests a sequential scheduler with actions and a fair scheduler in it
+	 */
 	@Test
 	public void fairSchedulerInSequentialSchedulerTest() throws ActionFinishedException, ActionInProgressException {
 		Scheduler ss = createScheduler();
@@ -191,7 +206,6 @@ public class SequentialSchedulerTest extends SchedulerTest {
 		isFinishedTest(a2);
 		isFinishedTest(a3);
 	}
-
 
 
 

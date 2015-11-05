@@ -13,15 +13,24 @@ import model.scheduler.SequentialScheduler;
 
 public class FairSchedulerTest extends SchedulerTest {
 	
+	/* (non-Javadoc)
+	 * @see scheduler.SchedulerTest#createScheduler()
+	 */
 	protected Scheduler createScheduler() {
 		return new FairScheduler();
 	}
 
+	/* (non-Javadoc)
+	 * @see scheduler.SchedulerTest#createScheduler(model.actions.Action[])
+	 */
 	protected IScheduler createScheduler(Action... actions) throws ActionFinishedException, ActionInProgressException {
 		return new FairScheduler(actions);
 	}
 	
 	
+	/**
+	 * Tests a fair scheduler with only actions in it
+	 */
 	@Test
 	public void fairSchedulerTest() throws ActionFinishedException, ActionInProgressException {
 		Scheduler scheduler = createScheduler();
@@ -62,6 +71,9 @@ public class FairSchedulerTest extends SchedulerTest {
 	}
 	
 
+	/**
+	 * Tests a fair scheduler with actions and an another fair scheduler in it
+	 */
 	@Test 
 	public void fairSchedulerInFairScheduler() throws ActionFinishedException, ActionInProgressException{
 		Scheduler scheduler1 = createScheduler();
@@ -156,6 +168,9 @@ public class FairSchedulerTest extends SchedulerTest {
 		isFinishedTest(a4);
 	}
 	
+	/**
+	 * Tests a fair scheduler with actions and a sequential scheduler in it
+	 */
 	@Test 
 	public void sequentialSchedulerInFairScheduler() throws ActionFinishedException, ActionInProgressException{
 		Scheduler fs = createScheduler();

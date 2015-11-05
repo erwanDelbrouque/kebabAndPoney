@@ -12,6 +12,9 @@ import org.junit.Test;
 
 public class OneStepActionTest {
 
+	/**
+	 * Tests that if a one step action has indeed on step to do before being finished
+	 */
 	@Test
 	public void with1OneStepAction() throws ActionFinishedException, ActionInProgressException {
 		OneStepAction action1 = new OneStepAction();
@@ -23,6 +26,11 @@ public class OneStepActionTest {
 		assertTrue(action1.isFinished());
 	}
 
+	/** 
+	 * Creates a fair scheduler with a one step action 
+	 * @param action1 The action to add to the fair scheduler
+	 * @return A fair scheduler with a one step action
+	 */
 	private Scheduler createScheduler(OneStepAction action1) throws ActionFinishedException, ActionInProgressException {
 		return new FairScheduler(action1);
 	}

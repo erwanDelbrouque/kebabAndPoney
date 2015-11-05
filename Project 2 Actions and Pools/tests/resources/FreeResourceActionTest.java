@@ -20,9 +20,19 @@ import model.ressources.users.ResourcefulUser;
 
 public class FreeResourceActionTest extends ResourcePoolActionTest {
 	
+	/**
+	 * An action that intercat with a pool and a user
+	 */
 	protected ResourcePoolAction<MockedResource> r;
+	
+	/**
+	 * A mock resource
+	 */
 	protected MockedResource mockedResource; 
 	
+	/* (non-Javadoc)
+	 * @see resources.ResourcePoolActionTest#createAction(model.ressources.pools.ResourcePool, model.ressources.users.ResourcefulUser)
+	 */
 	@Override
 	protected ResourcePoolAction<MockedResource> createAction(ResourcePool<MockedResource> pool,
 			ResourcefulUser<MockedResource> user) {
@@ -36,11 +46,17 @@ public class FreeResourceActionTest extends ResourcePoolActionTest {
 		user.setResource(mockedResource);
 	}
 
+	/* (non-Javadoc)
+	 * @see action.ActionTest#createAction(java.lang.String, int)
+	 */
 	@Override
 	protected IAction createAction(String name, int nbStepsMax) {
 		return new ForeseeableAction(name,nbStepsMax);
 	}
 	
+	/**
+	 * Tests freeing a null resource
+	 */
 	@Test(expected=NoSuchElementException.class)
 	public void freeNullResourceTest() throws NoSuchElementException, ActionFinishedException {
 		user.resetResource();
@@ -49,6 +65,9 @@ public class FreeResourceActionTest extends ResourcePoolActionTest {
 		
 	}
 	
+	/**
+	 * Tests freeing a resource that does not belong to a pool
+	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void freeInvalideResourceType() throws NoSuchElementException, ActionFinishedException, IllegalArgumentException{
 		mockedResource = new MockedResource();
@@ -58,6 +77,9 @@ public class FreeResourceActionTest extends ResourcePoolActionTest {
 		r.doStep();
 	}
 	
+	/**
+	 * Tests freeing a valid resource type
+	 */
 	@Test
 	public void freeValideResourceType() throws NoSuchElementException, ActionFinishedException{
 		assertTrue(pool.getUsedResources().contains(mockedResource));

@@ -9,15 +9,24 @@ import org.junit.Test;
 
 public class ForeseeableActionTest extends ActionTest {
 
+	/* (non-Javadoc)
+	 * @see action.ActionTest#createAction()
+	 */
 	@Override
 	protected IAction createAction() {
 		return new OneStepAction();
 	}
 
+	/* (non-Javadoc)
+	 * @see action.ActionTest#createAction(int)
+	 */
 	@Override
 	protected IAction createAction(int nbStepsMax) {
 		return new ForeseeableAction(nbStepsMax);
 	}
+	/* (non-Javadoc)
+	 * @see action.ActionTest#createAction(java.lang.String, int)
+	 */
 	@Override
 	protected IAction createAction(String name, int nbStepsMax) {
 		return new ForeseeableAction(name, nbStepsMax);

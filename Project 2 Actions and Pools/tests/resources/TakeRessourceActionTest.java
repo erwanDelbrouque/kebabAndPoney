@@ -17,16 +17,25 @@ import org.junit.Test;
 
 public class TakeRessourceActionTest extends ResourcePoolActionTest {
 
+	/* (non-Javadoc)
+	 * @see resources.ResourcePoolActionTest#createAction(model.ressources.pools.ResourcePool, model.ressources.users.ResourcefulUser)
+	 */
 	@Override
 	protected ResourcePoolAction<MockedResource> createAction(ResourcePool<MockedResource> pool, ResourcefulUser<MockedResource> user) {
 		return new TakeResourceAction<>(pool, user);
 	}
 	
+	/* (non-Javadoc)
+	 * @see action.ActionTest#createAction(java.lang.String, int)
+	 */
 	@Override
 	protected IAction createAction(String name, int nbStepsMax) {
 		return createAction(pool, user);
 	}
 	
+	/**
+	 * Tests taking a resource while there a no free resources
+	 */
 	@Test(expected=NoSuchElementException.class)
 	public void testRessourceEnAttente() throws ActionFinishedException, NoSuchElementException {
 		ResourcePoolAction<MockedResource> r =  createAction();
@@ -49,6 +58,9 @@ public class TakeRessourceActionTest extends ResourcePoolActionTest {
 		
 	}
 	
+	/**
+	 * Tests taking a resource from a pool and providing it to a user
+	 */
 	@Test
 	public void takeResourceTest() throws NoSuchElementException, ActionFinishedException {
 		pool = new MockedResourcePool(1);
@@ -61,10 +73,6 @@ public class TakeRessourceActionTest extends ResourcePoolActionTest {
 		
 		assertFalse(pool.hasAvailableRessource());
 		assertEquals(resource, user.getResource());
-		
-		
-		
-		
 		
 	}
 	
